@@ -1,0 +1,6 @@
+message person
+{
+required int32 age = 1;
+required int32 userid = 2;
+optional string name = 3;
+}

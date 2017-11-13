@@ -1,0 +1,388 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		83E51DC01FB3F9D9001FD14A /* ThreadPool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83E51DBE1FB3F9D8001FD14A /* ThreadPool.cpp */; };
+		83E51DCF1FB3FF59001FD14A /* HHClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83E51DCC1FB3FF58001FD14A /* HHClient.cpp */; };
+		83E51DD01FB40169001FD14A /* ClientSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83E51DC21FB3FB25001FD14A /* ClientSocket.cpp */; };
+		9A2E60F21ED13E7B001E5320 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A2E60EF1ED13E7B001E5320 /* main.cpp */; };
+		9A934F791EED642B00936164 /* msg.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 9A934F761EED642B00936164 /* msg.pb.cc */; };
+		9AC36BF61ED1806A003D5D0B /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC36BF51ED1806A003D5D0B /* libstdc++.tbd */; };
+		9AC36C011ED18126003D5D0B /* Socket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AC36BFA1ED18126003D5D0B /* Socket.cpp */; };
+		9AE434811EE8183300ED99A0 /* person.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 9AE4347B1EE8183300ED99A0 /* person.pb.cc */; };
+		9AE434841EE819FE00ED99A0 /* libprotobuf.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE434821EE819FE00ED99A0 /* libprotobuf.dylib */; };
+		9AE434851EE819FE00ED99A0 /* libprotoc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE434831EE819FE00ED99A0 /* libprotoc.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9A2E60CE1ED133CA001E5320 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		83E51DBC1FB3F9D8001FD14A /* ThreadPool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreadPool.h; sourceTree = "<group>"; };
+		83E51DBD1FB3F9D8001FD14A /* Util.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Util.hpp; sourceTree = "<group>"; };
+		83E51DBE1FB3F9D8001FD14A /* ThreadPool.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ThreadPool.cpp; sourceTree = "<group>"; };
+		83E51DBF1FB3F9D9001FD14A /* HHLog.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HHLog.hpp; sourceTree = "<group>"; };
+		83E51DC21FB3FB25001FD14A /* ClientSocket.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ClientSocket.cpp; sourceTree = "<group>"; };
+		83E51DC31FB3FB25001FD14A /* ClientSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClientSocket.h; sourceTree = "<group>"; };
+		83E51DC41FB3FB25001FD14A /* hhmessagehandle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = hhmessagehandle.hpp; sourceTree = "<group>"; };
+		83E51DC51FB3FB25001FD14A /* hhpacket.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = hhpacket.hpp; sourceTree = "<group>"; };
+		83E51DCB1FB3FF50001FD14A /* HHAlarmTask.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HHAlarmTask.hpp; sourceTree = "<group>"; };
+		83E51DCC1FB3FF58001FD14A /* HHClient.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HHClient.cpp; sourceTree = "<group>"; };
+		83E51DCD1FB3FF58001FD14A /* HHClientImpl.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HHClientImpl.hpp; sourceTree = "<group>"; };
+		83E51DCE1FB3FF59001FD14A /* HHClient.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HHClient.hpp; sourceTree = "<group>"; };
+		9A2E60D01ED133CA001E5320 /* SocketCilent */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SocketCilent; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A2E60EF1ED13E7B001E5320 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		9A934F761EED642B00936164 /* msg.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = msg.pb.cc; sourceTree = "<group>"; };
+		9A934F771EED642B00936164 /* msg.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msg.pb.h; sourceTree = "<group>"; };
+		9A934F781EED642B00936164 /* msg.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = msg.proto; sourceTree = "<group>"; };
+		9AC36BF51ED1806A003D5D0B /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		9AC36BFA1ED18126003D5D0B /* Socket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Socket.cpp; sourceTree = "<group>"; };
+		9AC36BFB1ED18126003D5D0B /* Socket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Socket.h; sourceTree = "<group>"; };
+		9AC36BFC1ED18126003D5D0B /* SocketException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketException.h; sourceTree = "<group>"; };
+		9AE4347B1EE8183300ED99A0 /* person.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = person.pb.cc; sourceTree = "<group>"; };
+		9AE4347C1EE8183300ED99A0 /* person.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = person.pb.h; sourceTree = "<group>"; };
+		9AE4347D1EE8183300ED99A0 /* person.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = person.proto; sourceTree = "<group>"; };
+		9AE434821EE819FE00ED99A0 /* libprotobuf.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libprotobuf.dylib; sourceTree = "<group>"; };
+		9AE434831EE819FE00ED99A0 /* libprotoc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libprotoc.a; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9A2E60CD1ED133CA001E5320 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AC36BF61ED1806A003D5D0B /* libstdc++.tbd in Frameworks */,
+				9AE434851EE819FE00ED99A0 /* libprotoc.a in Frameworks */,
+				9AE434841EE819FE00ED99A0 /* libprotobuf.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		83E51DC11FB3FB25001FD14A /* socket_client */ = {
+			isa = PBXGroup;
+			children = (
+				83E51DC21FB3FB25001FD14A /* ClientSocket.cpp */,
+				83E51DC31FB3FB25001FD14A /* ClientSocket.h */,
+				83E51DC41FB3FB25001FD14A /* hhmessagehandle.hpp */,
+				83E51DC51FB3FB25001FD14A /* hhpacket.hpp */,
+			);
+			path = socket_client;
+			sourceTree = "<group>";
+		};
+		9A2E60C71ED133CA001E5320 = {
+			isa = PBXGroup;
+			children = (
+				9A2E60D21ED133CA001E5320 /* SocketCilent */,
+				9A2E60D11ED133CA001E5320 /* Products */,
+				9AC36BF41ED18069003D5D0B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9A2E60D11ED133CA001E5320 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9A2E60D01ED133CA001E5320 /* SocketCilent */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9A2E60D21ED133CA001E5320 /* SocketCilent */ = {
+			isa = PBXGroup;
+			children = (
+				9AE434771EE8183300ED99A0 /* ProtoBuf */,
+				9AC36BF91ED18126003D5D0B /* socket_base */,
+				83E51DC11FB3FB25001FD14A /* socket_client */,
+				9AC36BFD1ED18126003D5D0B /* core */,
+				9A2E60EF1ED13E7B001E5320 /* main.cpp */,
+				83E51DCB1FB3FF50001FD14A /* HHAlarmTask.hpp */,
+				83E51DCC1FB3FF58001FD14A /* HHClient.cpp */,
+				83E51DCE1FB3FF59001FD14A /* HHClient.hpp */,
+				83E51DCD1FB3FF58001FD14A /* HHClientImpl.hpp */,
+			);
+			path = SocketCilent;
+			sourceTree = "<group>";
+		};
+		9AC36BF41ED18069003D5D0B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9AC36BF51ED1806A003D5D0B /* libstdc++.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9AC36BF91ED18126003D5D0B /* socket_base */ = {
+			isa = PBXGroup;
+			children = (
+				9AC36BFA1ED18126003D5D0B /* Socket.cpp */,
+				9AC36BFB1ED18126003D5D0B /* Socket.h */,
+				9AC36BFC1ED18126003D5D0B /* SocketException.h */,
+			);
+			path = socket_base;
+			sourceTree = "<group>";
+		};
+		9AC36BFD1ED18126003D5D0B /* core */ = {
+			isa = PBXGroup;
+			children = (
+				83E51DBF1FB3F9D9001FD14A /* HHLog.hpp */,
+				83E51DBE1FB3F9D8001FD14A /* ThreadPool.cpp */,
+				83E51DBC1FB3F9D8001FD14A /* ThreadPool.h */,
+				83E51DBD1FB3F9D8001FD14A /* Util.hpp */,
+			);
+			path = core;
+			sourceTree = "<group>";
+		};
+		9AE434771EE8183300ED99A0 /* ProtoBuf */ = {
+			isa = PBXGroup;
+			children = (
+				9A934F761EED642B00936164 /* msg.pb.cc */,
+				9A934F771EED642B00936164 /* msg.pb.h */,
+				9A934F781EED642B00936164 /* msg.proto */,
+				9AE434821EE819FE00ED99A0 /* libprotobuf.dylib */,
+				9AE434831EE819FE00ED99A0 /* libprotoc.a */,
+				9AE4347B1EE8183300ED99A0 /* person.pb.cc */,
+				9AE4347C1EE8183300ED99A0 /* person.pb.h */,
+				9AE4347D1EE8183300ED99A0 /* person.proto */,
+			);
+			path = ProtoBuf;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9A2E60CF1ED133CA001E5320 /* SocketCilent */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9A2E60D71ED133CA001E5320 /* Build configuration list for PBXNativeTarget "SocketCilent" */;
+			buildPhases = (
+				9A2E60CC1ED133CA001E5320 /* Sources */,
+				9A2E60CD1ED133CA001E5320 /* Frameworks */,
+				9A2E60CE1ED133CA001E5320 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SocketCilent;
+			productName = SocketCilent;
+			productReference = 9A2E60D01ED133CA001E5320 /* SocketCilent */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9A2E60C81ED133CA001E5320 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = PT;
+				TargetAttributes = {
+					9A2E60CF1ED133CA001E5320 = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 9A2E60CB1ED133CA001E5320 /* Build configuration list for PBXProject "SocketCilent" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9A2E60C71ED133CA001E5320;
+			productRefGroup = 9A2E60D11ED133CA001E5320 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9A2E60CF1ED133CA001E5320 /* SocketCilent */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9A2E60CC1ED133CA001E5320 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83E51DC01FB3F9D9001FD14A /* ThreadPool.cpp in Sources */,
+				9A934F791EED642B00936164 /* msg.pb.cc in Sources */,
+				83E51DCF1FB3FF59001FD14A /* HHClient.cpp in Sources */,
+				9AC36C011ED18126003D5D0B /* Socket.cpp in Sources */,
+				9A2E60F21ED13E7B001E5320 /* main.cpp in Sources */,
+				83E51DD01FB40169001FD14A /* ClientSocket.cpp in Sources */,
+				9AE434811EE8183300ED99A0 /* person.pb.cc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		9A2E60D51ED133CA001E5320 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		9A2E60D61ED133CA001E5320 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		9A2E60D81ED133CA001E5320 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SocketCilent/ProtoBuf",
+					/usr/local/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USE_HEADERMAP = NO;
+			};
+			name = Debug;
+		};
+		9A2E60D91ED133CA001E5320 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SocketCilent/ProtoBuf",
+					/usr/local/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USE_HEADERMAP = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9A2E60CB1ED133CA001E5320 /* Build configuration list for PBXProject "SocketCilent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A2E60D51ED133CA001E5320 /* Debug */,
+				9A2E60D61ED133CA001E5320 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9A2E60D71ED133CA001E5320 /* Build configuration list for PBXNativeTarget "SocketCilent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A2E60D81ED133CA001E5320 /* Debug */,
+				9A2E60D91ED133CA001E5320 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9A2E60C81ED133CA001E5320 /* Project object */;
+}
