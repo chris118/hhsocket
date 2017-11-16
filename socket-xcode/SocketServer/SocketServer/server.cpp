@@ -88,6 +88,9 @@ void *Server::WorkThreadProc() {
         << "\t" << x << "\t" << y << "\t" << w << "\t" << h << "\t"
         << start_timestamp << "\t" << end_timestamp << "\t" << credibility
         << "\t" << alarm_pic << "\t" << alarm_vid << "\t" << src_image << "\t" << send << "\n";
+        
+//        db.execute("UPDATE t_alarminfo SET send = 1 WHERE id = 478");
+
     }
 
     int packet_index = 0;
