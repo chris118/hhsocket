@@ -1,5 +1,5 @@
 #include "server.h"
-
+#include "../db/sqlite3pp.h"
 
 using namespace std;
 
@@ -71,6 +71,25 @@ void Server::AcceptAndDispatch() {
 
 //worker thread
 void *Server::WorkThreadProc() {
+    sqlite3pp::database db("./local.db");
+    sqlite3pp::query qry(db, "SELECT id, obj_type, timestamp, x, y, w, h,\
+                         start_timestamp, end_timestamp, credibility, \
+                         alarm_pic, alarm_vid, src_image, send FROM t_alarminfo");
+    for (auto v : qry) {
+        int id, obj_type, timestamp, x, y, w, h, start_timestamp, end_timestamp, send;
+        float credibility;
+        string alarm_pic, alarm_vid, src_image;
+        
+        v.getter() >> id >> obj_type >> timestamp >> x >> y >> w
+        >> h >> start_timestamp >> end_timestamp >> credibility
+        >> alarm_pic >> alarm_vid >> src_image >> send;
+        
+        cout << "\t" << id << "\t" << obj_type << "\t" << timestamp
+        << "\t" << x << "\t" << y << "\t" << w << "\t" << h << "\t"
+        << start_timestamp << "\t" << end_timestamp << "\t" << credibility
+        << "\t" << alarm_pic << "\t" << alarm_vid << "\t" << src_image << "\t" << send << "\n";
+    }
+
     int packet_index = 0;
     while(1)
     {

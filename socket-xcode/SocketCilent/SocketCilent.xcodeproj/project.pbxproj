@@ -11,7 +11,6 @@
 		83E51DCF1FB3FF59001FD14A /* HHClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83E51DCC1FB3FF58001FD14A /* HHClient.cpp */; };
 		83E51DD01FB40169001FD14A /* ClientSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83E51DC21FB3FB25001FD14A /* ClientSocket.cpp */; };
 		9A2E60F21ED13E7B001E5320 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A2E60EF1ED13E7B001E5320 /* main.cpp */; };
-		9A934F791EED642B00936164 /* msg.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 9A934F761EED642B00936164 /* msg.pb.cc */; };
 		9AC36BF61ED1806A003D5D0B /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC36BF51ED1806A003D5D0B /* libstdc++.tbd */; };
 		9AC36C011ED18126003D5D0B /* Socket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AC36BFA1ED18126003D5D0B /* Socket.cpp */; };
 		9AE434811EE8183300ED99A0 /* person.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 9AE4347B1EE8183300ED99A0 /* person.pb.cc */; };
@@ -46,9 +45,6 @@
 		83E51DCE1FB3FF59001FD14A /* HHClient.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HHClient.hpp; sourceTree = "<group>"; };
 		9A2E60D01ED133CA001E5320 /* SocketCilent */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SocketCilent; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A2E60EF1ED13E7B001E5320 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		9A934F761EED642B00936164 /* msg.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = msg.pb.cc; sourceTree = "<group>"; };
-		9A934F771EED642B00936164 /* msg.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msg.pb.h; sourceTree = "<group>"; };
-		9A934F781EED642B00936164 /* msg.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = msg.proto; sourceTree = "<group>"; };
 		9AC36BF51ED1806A003D5D0B /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		9AC36BFA1ED18126003D5D0B /* Socket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Socket.cpp; sourceTree = "<group>"; };
 		9AC36BFB1ED18126003D5D0B /* Socket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Socket.h; sourceTree = "<group>"; };
@@ -150,9 +146,6 @@
 		9AE434771EE8183300ED99A0 /* ProtoBuf */ = {
 			isa = PBXGroup;
 			children = (
-				9A934F761EED642B00936164 /* msg.pb.cc */,
-				9A934F771EED642B00936164 /* msg.pb.h */,
-				9A934F781EED642B00936164 /* msg.proto */,
 				9AE434821EE819FE00ED99A0 /* libprotobuf.dylib */,
 				9AE434831EE819FE00ED99A0 /* libprotoc.a */,
 				9AE4347B1EE8183300ED99A0 /* person.pb.cc */,
@@ -220,7 +213,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				83E51DC01FB3F9D9001FD14A /* ThreadPool.cpp in Sources */,
-				9A934F791EED642B00936164 /* msg.pb.cc in Sources */,
 				83E51DCF1FB3FF59001FD14A /* HHClient.cpp in Sources */,
 				9AC36C011ED18126003D5D0B /* Socket.cpp in Sources */,
 				9A2E60F21ED13E7B001E5320 /* main.cpp in Sources */,

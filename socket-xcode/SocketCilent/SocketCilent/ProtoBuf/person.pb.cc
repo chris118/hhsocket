@@ -16,119 +16,87 @@
 #include <google/protobuf/reflection_ops.h>
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
-class personDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<person> {
-} _person_default_instance_;
-
-namespace protobuf_person_2eproto {
-
 
 namespace {
 
-::google::protobuf::Metadata file_level_metadata[1];
+const ::google::protobuf::Descriptor* person_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  person_reflection_ = NULL;
 
 }  // namespace
 
-PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTableField
-    const TableStruct::entries[] = {
-  {0, 0, 0, ::google::protobuf::internal::kInvalidMask, 0, 0},
-};
 
-PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::AuxillaryParseTableField
-    const TableStruct::aux[] = {
-  ::google::protobuf::internal::AuxillaryParseTableField(),
-};
-PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTable const
-    TableStruct::schema[] = {
-  { NULL, NULL, 0, -1, -1, false },
-};
-
-const ::google::protobuf::uint32 TableStruct::offsets[] = {
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(person, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(person, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(person, age_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(person, userid_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(person, name_),
-  1,
-  2,
-  0,
-};
-
-static const ::google::protobuf::internal::MigrationSchema schemas[] = {
-  { 0, 8, sizeof(person)},
-};
-
-static ::google::protobuf::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::google::protobuf::Message*>(&_person_default_instance_),
-};
+void protobuf_AssignDesc_person_2eproto() GOOGLE_ATTRIBUTE_COLD;
+void protobuf_AssignDesc_person_2eproto() {
+  protobuf_AddDesc_person_2eproto();
+  const ::google::protobuf::FileDescriptor* file =
+    ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
+      "person.proto");
+  GOOGLE_CHECK(file != NULL);
+  person_descriptor_ = file->message_type(0);
+  static const int person_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(person, age_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(person, userid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(person, name_),
+  };
+  person_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      person_descriptor_,
+      person::default_instance_,
+      person_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(person),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(person, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(person, _is_default_instance_));
+}
 
 namespace {
 
-void protobuf_AssignDescriptors() {
-  AddDescriptors();
-  ::google::protobuf::MessageFactory* factory = NULL;
-  AssignDescriptors(
-      "person.proto", schemas, file_default_instances, TableStruct::offsets, factory,
-      file_level_metadata, NULL, NULL);
-}
-
-void protobuf_AssignDescriptorsOnce() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &protobuf_AssignDescriptors);
+GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AssignDescriptors_once_);
+inline void protobuf_AssignDescriptorsOnce() {
+  ::google::protobuf::GoogleOnceInit(&protobuf_AssignDescriptors_once_,
+                 &protobuf_AssignDesc_person_2eproto);
 }
 
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 1);
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      person_descriptor_, &person::default_instance());
 }
 
 }  // namespace
 
-void TableStruct::Shutdown() {
-  _person_default_instance_.Shutdown();
-  delete file_level_metadata[0].reflection;
+void protobuf_ShutdownFile_person_2eproto() {
+  delete person::default_instance_;
+  delete person_reflection_;
 }
 
-void TableStruct::InitDefaultsImpl() {
+void protobuf_AddDesc_person_2eproto() GOOGLE_ATTRIBUTE_COLD;
+void protobuf_AddDesc_person_2eproto() {
+  static bool already_here = false;
+  if (already_here) return;
+  already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::google::protobuf::internal::InitProtobufDefaults();
-  _person_default_instance_.DefaultConstruct();
-}
-
-void InitDefaults() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &TableStruct::InitDefaultsImpl);
-}
-void AddDescriptorsImpl() {
-  InitDefaults();
-  static const char descriptor[] = {
-      "\n\014person.proto\"3\n\006person\022\013\n\003age\030\001 \002(\005\022\016\n"
-      "\006userid\030\002 \002(\005\022\014\n\004name\030\003 \001(\t"
-  };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 67);
+    "\n\014person.proto\"3\n\006person\022\013\n\003age\030\001 \001(\005\022\016\n"
+    "\006userid\030\002 \001(\005\022\014\n\004name\030\003 \001(\tb\006proto3", 75);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "person.proto", &protobuf_RegisterTypes);
-  ::google::protobuf::internal::OnShutdown(&TableStruct::Shutdown);
+  person::default_instance_ = new person();
+  person::default_instance_->InitAsDefaultInstance();
+  ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_person_2eproto);
 }
 
-void AddDescriptors() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &AddDescriptorsImpl);
-}
 // Force AddDescriptors() to be called at static initialization time.
-struct StaticDescriptorInitializer {
-  StaticDescriptorInitializer() {
-    AddDescriptors();
+struct StaticDescriptorInitializer_person_2eproto {
+  StaticDescriptorInitializer_person_2eproto() {
+    protobuf_AddDesc_person_2eproto();
   }
-} static_descriptor_initializer;
-
-}  // namespace protobuf_person_2eproto
-
+} static_descriptor_initializer_person_2eproto_;
 
 // ===================================================================
 
@@ -140,33 +108,29 @@ const int person::kNameFieldNumber;
 
 person::person()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
-    protobuf_person_2eproto::InitDefaults();
-  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:person)
 }
+
+void person::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
+}
+
 person::person(const person& from)
   : ::google::protobuf::Message(),
-      _internal_metadata_(NULL),
-      _has_bits_(from._has_bits_),
-      _cached_size_(0) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.has_name()) {
-    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
-  }
-  ::memcpy(&age_, &from.age_,
-    reinterpret_cast<char*>(&userid_) -
-    reinterpret_cast<char*>(&age_) + sizeof(userid_));
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:person)
 }
 
 void person::SharedCtor() {
+    _is_default_instance_ = false;
+  ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
+  age_ = 0;
+  userid_ = 0;
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(&age_, 0, reinterpret_cast<char*>(&userid_) -
-    reinterpret_cast<char*>(&age_) + sizeof(userid_));
 }
 
 person::~person() {
@@ -176,6 +140,8 @@ person::~person() {
 
 void person::SharedDtor() {
   name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != default_instance_) {
+  }
 }
 
 void person::SetCachedSize(int size) const {
@@ -184,14 +150,16 @@ void person::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* person::descriptor() {
-  protobuf_person_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_person_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+  protobuf_AssignDescriptorsOnce();
+  return person_descriptor_;
 }
 
 const person& person::default_instance() {
-  protobuf_person_2eproto::InitDefaults();
-  return *internal_default_instance();
+  if (default_instance_ == NULL) protobuf_AddDesc_person_2eproto();
+  return *default_instance_;
 }
+
+person* person::default_instance_ = NULL;
 
 person* person::New(::google::protobuf::Arena* arena) const {
   person* n = new person;
@@ -203,16 +171,28 @@ person* person::New(::google::protobuf::Arena* arena) const {
 
 void person::Clear() {
 // @@protoc_insertion_point(message_clear_start:person)
-  if (has_name()) {
-    GOOGLE_DCHECK(!name_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
-    (*name_.UnsafeRawStringPointer())->clear();
-  }
-  if (_has_bits_[0 / 32] & 6u) {
-    ::memset(&age_, 0, reinterpret_cast<char*>(&userid_) -
-      reinterpret_cast<char*>(&age_) + sizeof(userid_));
-  }
-  _has_bits_.Clear();
-  _internal_metadata_.Clear();
+#if defined(__clang__)
+#define ZR_HELPER_(f) \
+  _Pragma("clang diagnostic push") \
+  _Pragma("clang diagnostic ignored \"-Winvalid-offsetof\"") \
+  __builtin_offsetof(person, f) \
+  _Pragma("clang diagnostic pop")
+#else
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<person*>(16)->f)
+#endif
+
+#define ZR_(first, last) do {\
+  ::memset(&first, 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  ZR_(age_, userid_);
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+
+#undef ZR_HELPER_
+#undef ZR_
+
 }
 
 bool person::MergePartialFromCodedStream(
@@ -221,51 +201,53 @@ bool person::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:person)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required int32 age = 1;
+      // optional int32 age = 1;
       case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u)) {
-          set_has_age();
+        if (tag == 8) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &age_)));
+
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(16)) goto parse_userid;
         break;
       }
 
-      // required int32 userid = 2;
+      // optional int32 userid = 2;
       case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(16u)) {
-          set_has_userid();
+        if (tag == 16) {
+         parse_userid:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &userid_)));
+
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(26)) goto parse_name;
         break;
       }
 
       // optional string name = 3;
       case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(26u)) {
+        if (tag == 26) {
+         parse_name:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_name()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->name().data(), this->name().length(),
-            ::google::protobuf::internal::WireFormat::PARSE,
-            "person.name");
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "person.name"));
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -276,8 +258,7 @@ bool person::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           goto success;
         }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
         break;
       }
     }
@@ -294,134 +275,94 @@ failure:
 void person::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:person)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  // required int32 age = 1;
-  if (cached_has_bits & 0x00000002u) {
+  // optional int32 age = 1;
+  if (this->age() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->age(), output);
   }
 
-  // required int32 userid = 2;
-  if (cached_has_bits & 0x00000004u) {
+  // optional int32 userid = 2;
+  if (this->userid() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->userid(), output);
   }
 
   // optional string name = 3;
-  if (cached_has_bits & 0x00000001u) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+  if (this->name().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->name().data(), this->name().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "person.name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       3, this->name(), output);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
   // @@protoc_insertion_point(serialize_end:person)
 }
 
 ::google::protobuf::uint8* person::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:person)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  // required int32 age = 1;
-  if (cached_has_bits & 0x00000002u) {
+  // optional int32 age = 1;
+  if (this->age() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->age(), target);
   }
 
-  // required int32 userid = 2;
-  if (cached_has_bits & 0x00000004u) {
+  // optional int32 userid = 2;
+  if (this->userid() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->userid(), target);
   }
 
   // optional string name = 3;
-  if (cached_has_bits & 0x00000001u) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+  if (this->name().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->name().data(), this->name().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "person.name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         3, this->name(), target);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
   // @@protoc_insertion_point(serialize_to_array_end:person)
   return target;
 }
 
-size_t person::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:person)
-  size_t total_size = 0;
-
-  if (has_age()) {
-    // required int32 age = 1;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->age());
-  }
-
-  if (has_userid()) {
-    // required int32 userid = 2;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->userid());
-  }
-
-  return total_size;
-}
-size_t person::ByteSizeLong() const {
+int person::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:person)
-  size_t total_size = 0;
+  int total_size = 0;
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  if (((_has_bits_[0] & 0x00000006) ^ 0x00000006) == 0) {  // All required fields are present.
-    // required int32 age = 1;
+  // optional int32 age = 1;
+  if (this->age() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->age());
+  }
 
-    // required int32 userid = 2;
+  // optional int32 userid = 2;
+  if (this->userid() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->userid());
-
-  } else {
-    total_size += RequiredFieldsByteSizeFallback();
   }
+
   // optional string name = 3;
-  if (has_name()) {
+  if (this->name().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->name());
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
+  _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void person::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:person)
-  GOOGLE_DCHECK_NE(&from, this);
-  const person* source =
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const person* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const person>(
           &from);
   if (source == NULL) {
@@ -435,24 +376,18 @@ void person::MergeFrom(const ::google::protobuf::Message& from) {
 
 void person::MergeFrom(const person& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:person)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  if (from.age() != 0) {
+    set_age(from.age());
+  }
+  if (from.userid() != 0) {
+    set_userid(from.userid());
+  }
+  if (from.name().size() > 0) {
 
-  cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 7u) {
-    if (cached_has_bits & 0x00000001u) {
-      set_has_name();
-      name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
-    }
-    if (cached_has_bits & 0x00000002u) {
-      age_ = from.age_;
-    }
-    if (cached_has_bits & 0x00000004u) {
-      userid_ = from.userid_;
-    }
-    _has_bits_[0] |= cached_has_bits;
+    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
   }
 }
 
@@ -471,7 +406,7 @@ void person::CopyFrom(const person& from) {
 }
 
 bool person::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000006) != 0x00000006) return false;
+
   return true;
 }
 
@@ -480,128 +415,91 @@ void person::Swap(person* other) {
   InternalSwap(other);
 }
 void person::InternalSwap(person* other) {
-  name_.Swap(&other->name_);
   std::swap(age_, other->age_);
   std::swap(userid_, other->userid_);
-  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  name_.Swap(&other->name_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata person::GetMetadata() const {
-  protobuf_person_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_person_2eproto::file_level_metadata[kIndexInFileMessages];
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = person_descriptor_;
+  metadata.reflection = person_reflection_;
+  return metadata;
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // person
 
-// required int32 age = 1;
-bool person::has_age() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-void person::set_has_age() {
-  _has_bits_[0] |= 0x00000002u;
-}
-void person::clear_has_age() {
-  _has_bits_[0] &= ~0x00000002u;
-}
+// optional int32 age = 1;
 void person::clear_age() {
   age_ = 0;
-  clear_has_age();
 }
-::google::protobuf::int32 person::age() const {
+ ::google::protobuf::int32 person::age() const {
   // @@protoc_insertion_point(field_get:person.age)
   return age_;
 }
-void person::set_age(::google::protobuf::int32 value) {
-  set_has_age();
+ void person::set_age(::google::protobuf::int32 value) {
+  
   age_ = value;
   // @@protoc_insertion_point(field_set:person.age)
 }
 
-// required int32 userid = 2;
-bool person::has_userid() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-void person::set_has_userid() {
-  _has_bits_[0] |= 0x00000004u;
-}
-void person::clear_has_userid() {
-  _has_bits_[0] &= ~0x00000004u;
-}
+// optional int32 userid = 2;
 void person::clear_userid() {
   userid_ = 0;
-  clear_has_userid();
 }
-::google::protobuf::int32 person::userid() const {
+ ::google::protobuf::int32 person::userid() const {
   // @@protoc_insertion_point(field_get:person.userid)
   return userid_;
 }
-void person::set_userid(::google::protobuf::int32 value) {
-  set_has_userid();
+ void person::set_userid(::google::protobuf::int32 value) {
+  
   userid_ = value;
   // @@protoc_insertion_point(field_set:person.userid)
 }
 
 // optional string name = 3;
-bool person::has_name() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-void person::set_has_name() {
-  _has_bits_[0] |= 0x00000001u;
-}
-void person::clear_has_name() {
-  _has_bits_[0] &= ~0x00000001u;
-}
 void person::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_name();
 }
-const ::std::string& person::name() const {
+ const ::std::string& person::name() const {
   // @@protoc_insertion_point(field_get:person.name)
-  return name_.GetNoArena();
+  return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void person::set_name(const ::std::string& value) {
-  set_has_name();
+ void person::set_name(const ::std::string& value) {
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:person.name)
 }
-#if LANG_CXX11
-void person::set_name(::std::string&& value) {
-  set_has_name();
-  name_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:person.name)
-}
-#endif
-void person::set_name(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  set_has_name();
+ void person::set_name(const char* value) {
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:person.name)
 }
-void person::set_name(const char* value, size_t size) {
-  set_has_name();
+ void person::set_name(const char* value, size_t size) {
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:person.name)
 }
-::std::string* person::mutable_name() {
-  set_has_name();
+ ::std::string* person::mutable_name() {
+  
   // @@protoc_insertion_point(field_mutable:person.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* person::release_name() {
+ ::std::string* person::release_name() {
   // @@protoc_insertion_point(field_release:person.name)
-  clear_has_name();
+  
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void person::set_allocated_name(::std::string* name) {
+ void person::set_allocated_name(::std::string* name) {
   if (name != NULL) {
-    set_has_name();
+    
   } else {
-    clear_has_name();
+    
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
   // @@protoc_insertion_point(field_set_allocated:person.name)

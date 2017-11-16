@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A5324171FBDF0F900851F5E /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5324161FBDF0F900851F5E /* libsqlite3.tbd */; };
+		9A53241E1FBDF16900851F5E /* sqlite3pp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A53241A1FBDF16900851F5E /* sqlite3pp.cpp */; };
+		9A53241F1FBDF16900851F5E /* sqlite3ppext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A53241C1FBDF16900851F5E /* sqlite3ppext.cpp */; };
+		9A5324211FBDF33900851F5E /* libc++abi.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5324201FBDF33900851F5E /* libc++abi.tbd */; };
 		9AC36C181ED181D3003D5D0B /* Socket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AC36C111ED181D3003D5D0B /* Socket.cpp */; };
 		9AC36C191ED181D3003D5D0B /* Utility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AC36C161ED181D3003D5D0B /* Utility.cpp */; };
 		9AC36C1B1ED18766003D5D0B /* hhpacket.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AC36C1A1ED18766003D5D0B /* hhpacket.hpp */; };
@@ -34,6 +38,13 @@
 
 /* Begin PBXFileReference section */
 		9A2E60E31ED133E7001E5320 /* SocketServer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SocketServer; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A5324161FBDF0F900851F5E /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		9A5324191FBDF16900851F5E /* local.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = local.db; sourceTree = "<group>"; };
+		9A53241A1FBDF16900851F5E /* sqlite3pp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sqlite3pp.cpp; sourceTree = "<group>"; };
+		9A53241B1FBDF16900851F5E /* sqlite3pp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sqlite3pp.h; sourceTree = "<group>"; };
+		9A53241C1FBDF16900851F5E /* sqlite3ppext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sqlite3ppext.cpp; sourceTree = "<group>"; };
+		9A53241D1FBDF16900851F5E /* sqlite3ppext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sqlite3ppext.h; sourceTree = "<group>"; };
+		9A5324201FBDF33900851F5E /* libc++abi.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++abi.tbd"; path = "usr/lib/libc++abi.tbd"; sourceTree = SDKROOT; };
 		9AC36C111ED181D3003D5D0B /* Socket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Socket.cpp; sourceTree = "<group>"; };
 		9AC36C121ED181D3003D5D0B /* Socket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Socket.h; sourceTree = "<group>"; };
 		9AC36C131ED181D3003D5D0B /* SocketException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketException.h; sourceTree = "<group>"; };
@@ -61,6 +72,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A5324211FBDF33900851F5E /* libc++abi.tbd in Frameworks */,
+				9A5324171FBDF0F900851F5E /* libsqlite3.tbd in Frameworks */,
 				9AE4348D1EE820BD00ED99A0 /* libprotoc.a in Frameworks */,
 				9AE4348C1EE820BD00ED99A0 /* libprotobuf.dylib in Frameworks */,
 			);
@@ -72,9 +85,11 @@
 		9A2E60DA1ED133E7001E5320 = {
 			isa = PBXGroup;
 			children = (
+				9A5324181FBDF16900851F5E /* db */,
 				9AE434861EE820BD00ED99A0 /* ProtoBuf */,
 				9A2E60E51ED133E7001E5320 /* SocketServer */,
 				9A2E60E41ED133E7001E5320 /* Products */,
+				9A5324151FBDF0F900851F5E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,6 +117,27 @@
 				9AC36C141ED181D3003D5D0B /* utility */,
 			);
 			path = SocketServer;
+			sourceTree = "<group>";
+		};
+		9A5324151FBDF0F900851F5E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9A5324201FBDF33900851F5E /* libc++abi.tbd */,
+				9A5324161FBDF0F900851F5E /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9A5324181FBDF16900851F5E /* db */ = {
+			isa = PBXGroup;
+			children = (
+				9A5324191FBDF16900851F5E /* local.db */,
+				9A53241A1FBDF16900851F5E /* sqlite3pp.cpp */,
+				9A53241B1FBDF16900851F5E /* sqlite3pp.h */,
+				9A53241C1FBDF16900851F5E /* sqlite3ppext.cpp */,
+				9A53241D1FBDF16900851F5E /* sqlite3ppext.h */,
+			);
+			path = db;
 			sourceTree = "<group>";
 		};
 		9AC36C101ED181D3003D5D0B /* socket_base */ = {
@@ -194,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AC36C191ED181D3003D5D0B /* Utility.cpp in Sources */,
+				9A53241F1FBDF16900851F5E /* sqlite3ppext.cpp in Sources */,
 				9AC36C261ED294B1003D5D0B /* server.cpp in Sources */,
 				9AC36C181ED181D3003D5D0B /* Socket.cpp in Sources */,
 				9AC36C1B1ED18766003D5D0B /* hhpacket.hpp in Sources */,
@@ -202,6 +239,7 @@
 				9AC36C231ED294B1003D5D0B /* client.cpp in Sources */,
 				9AC36C241ED294B1003D5D0B /* hhthread.cpp in Sources */,
 				9AE4348E1EE820BD00ED99A0 /* person.pb.cc in Sources */,
+				9A53241E1FBDF16900851F5E /* sqlite3pp.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

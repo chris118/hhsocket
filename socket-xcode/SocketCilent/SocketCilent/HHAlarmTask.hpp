@@ -29,7 +29,6 @@
 #include "socket_client/hhpacket.hpp"
 #include "socket_client/hhmessagehandle.hpp"
 #include "ProtoBuf/person.pb.h"
-#include "ProtoBuf/msg.pb.h"
 
 using namespace std;
 using namespace hhclient;

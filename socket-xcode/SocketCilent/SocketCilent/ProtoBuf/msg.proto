@@ -1,8 +1,0 @@
-message HHLogin {
-  enum eClientType{
-	eTx2 = 1;	//监控服务器
-  }
-  required eClientType clienttype = 1;
-  required int32 port = 2;		//Login的客户端对外的Port（客户端自己获取，发送过来）
-  required int32 version = 3;	//Login的客户端版本号，当前为1
-}
