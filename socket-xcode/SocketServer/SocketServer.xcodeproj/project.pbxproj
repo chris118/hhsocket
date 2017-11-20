@@ -38,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		9A2E60E31ED133E7001E5320 /* SocketServer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SocketServer; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A373A5F1FC326B200B76CC2 /* alarm.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = alarm.proto; sourceTree = "<group>"; };
 		9A5324161FBDF0F900851F5E /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		9A5324191FBDF16900851F5E /* local.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = local.db; sourceTree = "<group>"; };
 		9A53241A1FBDF16900851F5E /* sqlite3pp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sqlite3pp.cpp; sourceTree = "<group>"; };
@@ -163,6 +164,7 @@
 		9AE434861EE820BD00ED99A0 /* ProtoBuf */ = {
 			isa = PBXGroup;
 			children = (
+				9A373A5F1FC326B200B76CC2 /* alarm.proto */,
 				9AE434871EE820BD00ED99A0 /* libprotobuf.dylib */,
 				9AE434881EE820BD00ED99A0 /* libprotoc.a */,
 				9AE434891EE820BD00ED99A0 /* person.pb.cc */,
