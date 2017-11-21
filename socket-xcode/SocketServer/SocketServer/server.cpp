@@ -1,6 +1,9 @@
 #include "server.h"
+#include<iostream>  
+#include<fstream>
 #include "../db/sqlite3pp.h"
 
+#define MAXBYTE     0xff
 using namespace std;
 
 //Actually allocate clients
@@ -100,10 +103,21 @@ void *Server::WorkThreadProc() {
             cout << "end_timestamp = " << end_timestamp << endl;
             cout << "credibility = " << credibility << endl;
             
-            //        db.execute("UPDATE t_alarminfo SET send = 1 WHERE id = 478");
             
+            //read file
+            ifstream fin;
+            fin.open("002.jpg", ios_base::binary);
+            if (!fin.is_open())
+            {
+                cout << "Error open file..." << endl;
+            }
+            fin.seekg(0, ios::end);
+            long fsize = fin.tellg();
+            char* pfile = new char[fsize];
+            fin.read(pfile, fsize);
+        
+            // send alarm
             AlarmInfo info;
-            
             info.set_id(id);
             info.set_obj_type(obj_type);
             info.set_timestamp(timestamp);
@@ -114,9 +128,18 @@ void *Server::WorkThreadProc() {
             info.set_start_timestamp(start_timestamp);
             info.set_end_timestamp(end_timestamp);
             info.set_credibility(credibility);
+            info.set_src_image(pfile, fsize);
             
             Server::SendToAll(packet_index, info);
             packet_index++;
+            
+            if(pfile){
+                delete[] pfile;
+            }
+            
+            // update status
+            //db.execute("UPDATE t_alarminfo SET send = 1 WHERE id = 478");
+
         }
         sleep(10);
     }
