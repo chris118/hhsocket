@@ -128,7 +128,7 @@ void *Server::WorkThreadProc() {
             info.set_start_timestamp(start_timestamp);
             info.set_end_timestamp(end_timestamp);
             info.set_credibility(credibility);
-            info.set_src_image(pfile, fsize);
+            info.set_src_image(pfile);
             
             Server::SendToAll(packet_index, info);
             packet_index++;

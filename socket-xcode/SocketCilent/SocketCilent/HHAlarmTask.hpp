@@ -90,6 +90,9 @@ public:
                     alarm.start_timestamp = alarm_info->start_timestamp();
                     alarm.end_timestamp = alarm_info->end_timestamp();
                     alarm.credibility = alarm_info->credibility();
+                    string src_image = alarm_info->src_image();
+                    alarm.src_image = (char*)src_image.c_str();
+                    alarm.src_image_size = src_image.length();
 
                     m_callback->onAlarm(alarm);
                 }

@@ -37,8 +37,8 @@ class HHCallback: public HHlientCallback{
 //        cout << "src_image_size " << alarm.src_image_size << endl;
 //        cout << "src_image " <<static_cast<const void *>(alarm.src_image )<< endl;
 //
-//        ofstream os("result.jpg",ios::binary);
-//        os.write(alarm.alarm_pic, alarm.alarm_pic_size);
+        ofstream os("result.jpg",ios::binary);
+        os.write(alarm.src_image, alarm.src_image_size);
     }
 };
 
