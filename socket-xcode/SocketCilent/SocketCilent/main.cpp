@@ -30,15 +30,15 @@ class HHCallback: public HHlientCallback{
         cout << "credibility " << alarm.credibility << endl;
         
         
-        cout << "alarm_pic_size " << alarm.alarm_pic_size << endl;
-        cout << "alarm_pic " << static_cast<const void *>(alarm.alarm_pic) << endl;
-        cout << "alarm_vid_size " << alarm.alarm_vid_size << endl;
-        cout << "alarm_vid " <<static_cast<const void *>(alarm.alarm_vid )<< endl;
-        cout << "src_image_size " << alarm.src_image_size << endl;
-        cout << "src_image " <<static_cast<const void *>(alarm.src_image )<< endl;
-        
-        ofstream os("result.jpg",ios::binary);
-        os.write(alarm.alarm_pic, alarm.alarm_pic_size);
+//        cout << "alarm_pic_size " << alarm.alarm_pic_size << endl;
+//        cout << "alarm_pic " << static_cast<const void *>(alarm.alarm_pic) << endl;
+//        cout << "alarm_vid_size " << alarm.alarm_vid_size << endl;
+//        cout << "alarm_vid " <<static_cast<const void *>(alarm.alarm_vid )<< endl;
+//        cout << "src_image_size " << alarm.src_image_size << endl;
+//        cout << "src_image " <<static_cast<const void *>(alarm.src_image )<< endl;
+//
+//        ofstream os("result.jpg",ios::binary);
+//        os.write(alarm.alarm_pic, alarm.alarm_pic_size);
     }
 };
 

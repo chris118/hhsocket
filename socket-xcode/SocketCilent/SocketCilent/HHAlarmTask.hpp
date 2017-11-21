@@ -28,7 +28,7 @@
 #include "socket_client/ClientSocket.h"
 #include "socket_client/hhpacket.hpp"
 #include "socket_client/hhmessagehandle.hpp"
-#include "ProtoBuf/person.pb.h"
+#include "ProtoBuf/alarm.pb.h"
 
 using namespace std;
 using namespace hhclient;
@@ -54,7 +54,7 @@ public:
                 m_socket.recv(&protoMsgArray, (int)sizeof(protoMsgArray));
                 
                 //反序列化
-                const ::google::protobuf::Descriptor*descriptor =person::descriptor();
+                const ::google::protobuf::Descriptor*descriptor =AlarmInfo::descriptor();
                 const google::protobuf::Message* prototype = google::protobuf::MessageFactory::generated_factory()->GetPrototype(descriptor);
                 google::protobuf::Message* msgProtobuf = prototype->New();
                 bool ret = msgProtobuf->ParseFromArray(protoMsgArray, (int)sizeof(protoMsgArray));
@@ -65,12 +65,35 @@ public:
                     continue;
                 }
                 
-                person *person = static_cast<class person*>(msgProtobuf) ;
+                AlarmInfo *alarm_info = static_cast<class AlarmInfo*>(msgProtobuf) ;
                 
-                cout << "name = "<<person->name() << endl;
-                cout << "uid = "<<person->userid() << endl;
-                cout << "age = "<<person->age() << endl;
-                
+//                cout << "id = " << alarm_info->id() << endl;
+//                cout << "obj_type = " <<alarm_info->obj_type() << endl;
+//                cout << "timestamp = " << alarm_info->timestamp() << endl;
+//                cout << "x = " << alarm_info->x() << endl;
+//                cout << "y = " << alarm_info->y() << endl;
+//                cout << "w = " << alarm_info->w() << endl;
+//                cout << "h = " << alarm_info->h() << endl;
+//                cout << "start_timestamp = " << alarm_info->start_timestamp() << endl;
+//                cout << "end_timestamp = " << alarm_info->end_timestamp() << endl;
+//                cout << "credibility = " << alarm_info->credibility() << endl;
+//
+                if(m_callback){
+                    HHAlarm alarm;
+                    alarm.id = alarm_info->id();
+                    alarm.car_type = (HHCarType)alarm_info->obj_type();
+                    alarm.timestamp = alarm_info->timestamp();
+                    alarm.coordinate[0] = alarm_info->x();
+                    alarm.coordinate[1] = alarm_info->y();
+                    alarm.coordinate[2] = alarm_info->w();
+                    alarm.coordinate[3] = alarm_info->h();
+                    alarm.start_timestamp = alarm_info->start_timestamp();
+                    alarm.end_timestamp = alarm_info->end_timestamp();
+                    alarm.credibility = alarm_info->credibility();
+
+                    m_callback->onAlarm(alarm);
+                }
+
             } catch (...) {
                 
             }

@@ -10,8 +10,7 @@
 #include <iostream>
 #include <assert.h>
 #include <stdint.h>
-
-#include "../ProtoBuf/person.pb.h"
+#include "../ProtoBuf/alarm.pb.h"
 
 using namespace std;
 
@@ -21,7 +20,7 @@ public:
     /*  注册消息处理函数 */
     void initHandles()
     {
-        registerHandle(&ProtoMsgHandle::handleProtoPerson);
+        registerHandle(&ProtoMsgHandle::handleProtoAlarm);
     }
     
     /*  处理网络消息
@@ -100,11 +99,8 @@ public:
         }while(0);
     }
 private:
-    void handleProtoPerson(person* person)
+    void handleProtoAlarm(AlarmInfo* alarmInfo)
     {
-        cout << "person->age()="<<person->age() << endl;
-        cout << "person->userid()="<<person->userid() << endl;
-        cout << "person->name()="<<person->name() << endl;
     }
     
 private:

@@ -72,33 +72,53 @@ void Server::AcceptAndDispatch() {
 //worker thread
 void *Server::WorkThreadProc() {
     sqlite3pp::database db("./local.db");
-    sqlite3pp::query qry(db, "SELECT id, obj_type, timestamp, x, y, w, h,\
-                         start_timestamp, end_timestamp, credibility, \
-                         alarm_pic, alarm_vid, src_image, send FROM t_alarminfo");
-    for (auto v : qry) {
-        int id, obj_type, timestamp, x, y, w, h, start_timestamp, end_timestamp, send;
-        float credibility;
-        string alarm_pic, alarm_vid, src_image;
-        
-        v.getter() >> id >> obj_type >> timestamp >> x >> y >> w
-        >> h >> start_timestamp >> end_timestamp >> credibility
-        >> alarm_pic >> alarm_vid >> src_image >> send;
-        
-        cout << "\t" << id << "\t" << obj_type << "\t" << timestamp
-        << "\t" << x << "\t" << y << "\t" << w << "\t" << h << "\t"
-        << start_timestamp << "\t" << end_timestamp << "\t" << credibility
-        << "\t" << alarm_pic << "\t" << alarm_vid << "\t" << src_image << "\t" << send << "\n";
-        
-//        db.execute("UPDATE t_alarminfo SET send = 1 WHERE id = 478");
-
-    }
 
     int packet_index = 0;
     while(1)
     {
-        Server::SendToAll(packet_index);
-        packet_index++;
-        sleep(2);
+        sqlite3pp::query qry(db, "SELECT id, obj_type, timestamp, x, y, w, h,\
+                             start_timestamp, end_timestamp, credibility, \
+                             alarm_pic, alarm_vid, src_image, send FROM t_alarminfo");
+        for (auto v : qry) {
+            int id, obj_type, timestamp, x, y, w, h, start_timestamp, end_timestamp, send;
+            float credibility;
+            string alarm_pic, alarm_vid, src_image;
+            
+            v.getter() >> id >> obj_type >> timestamp >> x >> y >> w
+            >> h >> start_timestamp >> end_timestamp >> credibility
+            >> alarm_pic >> alarm_vid >> src_image >> send;
+            
+           
+            cout << "id = " << id << endl;
+            cout << "obj_type = " <<obj_type << endl;
+            cout << "timestamp = " << timestamp << endl;
+            cout << "x = " << x << endl;
+            cout << "y = " << y << endl;
+            cout << "w = " << w << endl;
+            cout << "h = " << h << endl;
+            cout << "start_timestamp = " << start_timestamp << endl;
+            cout << "end_timestamp = " << end_timestamp << endl;
+            cout << "credibility = " << credibility << endl;
+            
+            //        db.execute("UPDATE t_alarminfo SET send = 1 WHERE id = 478");
+            
+            AlarmInfo info;
+            
+            info.set_id(id);
+            info.set_obj_type(obj_type);
+            info.set_timestamp(timestamp);
+            info.set_x(x);
+            info.set_y(y);
+            info.set_w(w);
+            info.set_h(h);
+            info.set_start_timestamp(start_timestamp);
+            info.set_end_timestamp(end_timestamp);
+            info.set_credibility(credibility);
+            
+            Server::SendToAll(packet_index, info);
+            packet_index++;
+        }
+        sleep(10);
     }
     
     //End thread
@@ -184,7 +204,7 @@ bool Server::SendPacket(Client &client, int packet_index,
     return true;
 }
 
-void Server::SendToAll(int packet_index) {
+void Server::SendToAll(int packet_index, AlarmInfo info) {
     
     //Acquire the lock
     HHThread::LockMutex("'SendToAll()'");
@@ -192,20 +212,15 @@ void Server::SendToAll(int packet_index) {
     for(size_t i=0; i<clients.size(); i++) {
         
         cout << " send to:" << "Client " << clients[i].name << endl;
-
-        person person;
-        person.set_age(18);
-        person.set_userid(200508);
-        person.set_name("irons");
-    
+        
         HHHeader header;
         header.flag = 0xffff;
         header.seq = packet_index;
-        header.msg_length = person.ByteSize();//Message的字节数
+        header.msg_length = info.ByteSize();//Message的字节数
         header.type = 1;
         header.reserved = 0;
 
-        SendPacket(clients[i], packet_index, person, header);
+        SendPacket(clients[i], packet_index, info, header);
     }
     
     //Release the lock
