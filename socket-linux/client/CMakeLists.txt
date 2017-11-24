@@ -9,9 +9,10 @@ aux_source_directory(./protobuf PROTOC_SRC_LIST)
 list(APPEND PROJECT_SOURCE_DIR ${PROTOC_SRC_LIST})
 aux_source_directory(./socket_base SB_SRC_LIST)
 list(APPEND PROJECT_SOURCE_DIR ${SB_SRC_LIST})
-aux_source_directory(./utility UT_SRC_LIST)
-list(APPEND PROJECT_SOURCE_DIR ${UT_SRC_LIST})
-
+aux_source_directory(./core CORE_SRC_LIST)
+list(APPEND PROJECT_SOURCE_DIR ${CORE_SRC_LIST})
+aux_source_directory(./socket_client SOCKET_CLIENT_SRC_LIST)
+list(APPEND PROJECT_SOURCE_DIR ${SOCKET_CLIENT_SRC_LIST})
 
 #$ cmake -DCMAKE_BUILD_TYPE=Debug .
 #SET(CMAKE_CXX_FLAGS_DEBUG"$ENV{CXXFLAGS} -O0 -Wall -g -ggdb")
@@ -23,9 +24,10 @@ LINK_DIRECTORIES(
 )
 
 include_directories (
+./core
 ./protobuf
 ./socket_base
-./utility
+./socket_client
 /usr/local/include
 /usr/include
 /usr/local/cuda/include
@@ -34,6 +36,7 @@ include_directories (
 add_executable(client ${PROJECT_SOURCE_DIR})
 
 target_link_libraries(client   
-   protobuf
+    protobuf
    pthread
+   sqlite3
 )

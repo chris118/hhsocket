@@ -19,7 +19,7 @@ int HHThread::Create(void *Callback, void *args) {
     return tret;
   }
   else {
-    cout << "Thread successfully created." << endl;
+//    cout << "Thread successfully created." << endl;
     return 0;
   }
 }
@@ -46,9 +46,9 @@ int HHThread::InitMutex() {
 		Blocks until mutex becomes available
 */
 int HHThread::LockMutex(const char *identifier) {
-  cout << identifier << " is trying to acquire the lock..." << endl;
+//  cout << identifier << " is trying to acquire the lock..." << endl;
   if(pthread_mutex_lock(&HHThread::mutex) == 0) {
-    cout << identifier << " acquired the lock!" << endl;
+//    cout << identifier << " acquired the lock!" << endl;
     return 0;
   }
   else {
@@ -58,9 +58,9 @@ int HHThread::LockMutex(const char *identifier) {
 }
 
 int HHThread::UnlockMutex(const char *identifier) {
-  cout << identifier << " is trying to release the lock..." << endl;
+//  cout << identifier << " is trying to release the lock..." << endl;
   if(pthread_mutex_unlock(&HHThread::mutex) == 0) {
-    cout << identifier << " released the lock!" << endl;
+//    cout << identifier << " released the lock!" << endl;
     return 0;
   }
   else {

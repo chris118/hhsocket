@@ -11,6 +11,8 @@ aux_source_directory(./socket_base SB_SRC_LIST)
 list(APPEND PROJECT_SOURCE_DIR ${SB_SRC_LIST})
 aux_source_directory(./utility UT_SRC_LIST)
 list(APPEND PROJECT_SOURCE_DIR ${UT_SRC_LIST})
+aux_source_directory(./db DB_SRC_LIST)
+list(APPEND PROJECT_SOURCE_DIR ${DB_SRC_LIST})
 
 
 #$ cmake -DCMAKE_BUILD_TYPE=Debug .
@@ -26,9 +28,9 @@ include_directories (
 ./protobuf
 ./socket_base
 ./utility
+./db
 /usr/local/include
 /usr/include
-/usr/local/cuda/include
 )
 
 add_executable(server ${PROJECT_SOURCE_DIR})
@@ -36,4 +38,5 @@ add_executable(server ${PROJECT_SOURCE_DIR})
 target_link_libraries(server   
    protobuf
    pthread
+   sqlite3
 )

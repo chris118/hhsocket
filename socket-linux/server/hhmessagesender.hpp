@@ -11,7 +11,6 @@
 #include <assert.h>
 #include <stdint.h>
 
-#include "person.pb.h"
 
 using namespace std;
 
