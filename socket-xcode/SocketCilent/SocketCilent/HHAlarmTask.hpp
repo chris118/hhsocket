@@ -50,14 +50,39 @@ public:
                 
                 //收消息体
                 int messageSize = header.msg_length;
-                char protoMsgArray[messageSize];
-                m_socket.recv(&protoMsgArray, (int)sizeof(protoMsgArray));
+                char protoMsgBuf[messageSize];
+                
+                //分小块收取
+                if(messageSize > MAXRECV){
+                    int left_length = messageSize;
+                    int read_length = 0;
+                    const int TRUNK_SIZE = 100;
+
+                    while (left_length > 0) {
+                        if(left_length > TRUNK_SIZE){
+                            char buf[TRUNK_SIZE];
+                            m_socket.recv(buf, TRUNK_SIZE);
+                            memcpy(protoMsgBuf + read_length, buf, TRUNK_SIZE);
+                            read_length += TRUNK_SIZE;
+                            left_length -= TRUNK_SIZE;
+                        }else{
+                            char buf[left_length];
+                            m_socket.recv(buf, left_length);
+                            memcpy(protoMsgBuf + read_length, buf, left_length);
+                            left_length = 0;
+                        }
+                    }
+                }else{
+                    char buf[messageSize];
+                    m_socket.recv(buf, messageSize);
+                    memcpy(protoMsgBuf, buf, messageSize);
+                }
                 
                 //反序列化
                 const ::google::protobuf::Descriptor*descriptor =AlarmInfo::descriptor();
                 const google::protobuf::Message* prototype = google::protobuf::MessageFactory::generated_factory()->GetPrototype(descriptor);
                 google::protobuf::Message* msgProtobuf = prototype->New();
-                bool ret = msgProtobuf->ParseFromArray(protoMsgArray, (int)sizeof(protoMsgArray));
+                bool ret = msgProtobuf->ParseFromArray(protoMsgBuf, (int)sizeof(protoMsgBuf));
                 if (ret == false)
                 {
                     cout << "Deserialize error !" << endl;
@@ -90,6 +115,11 @@ public:
                     alarm.start_timestamp = alarm_info->start_timestamp();
                     alarm.end_timestamp = alarm_info->end_timestamp();
                     alarm.credibility = alarm_info->credibility();
+                    
+                    string src = alarm_info->src_image();
+                    cout << src << endl;
+                    alarm.src_image = (char*)src.c_str();
+                    alarm.src_image_size = src.length();
 
                     m_callback->onAlarm(alarm);
                 }
