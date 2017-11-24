@@ -37,6 +37,7 @@ class HHCallback: public HHlientCallback{
 //        cout << "src_image_size " << alarm.src_image_size << endl;
 //        cout << "src_image " <<static_cast<const void *>(alarm.src_image )<< endl;
 //
+        cout << "save source image--> result.jpg" << "  size = " << alarm.src_image_size << endl;
         ofstream os("result.jpg",ios::binary);
         os.write(alarm.src_image, alarm.src_image_size);
     }

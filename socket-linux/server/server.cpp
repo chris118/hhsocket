@@ -1,9 +1,6 @@
 #include "server.h"
-#include<iostream>  
-#include<fstream>
 #include "../db/sqlite3pp.h"
 
-#define MAXBYTE     0xff
 using namespace std;
 
 //Actually allocate clients
@@ -103,19 +100,33 @@ void *Server::WorkThreadProc() {
             cout << "end_timestamp = " << end_timestamp << endl;
             cout << "credibility = " << credibility << endl;
             
-            
             //read file
-            ifstream fin;
-            fin.open("002.jpg", ios_base::binary);
-            if (!fin.is_open())
+            std::ifstream ifs("002.jpg");
+//            std::ifstream ifs("1.txt");
+
+            if(!ifs)
             {
                 cout << "Error open file..." << endl;
+                continue;
             }
-            fin.seekg(0, ios::end);
-            long fsize = fin.tellg();
-            char* pfile = new char[fsize];
-            fin.read(pfile, fsize);
-        
+
+            
+            //If you really need it in a string you can initialize it the same way as the vector
+            std::string src_image_data = std::string(std::istreambuf_iterator<char>(ifs), std::istreambuf_iterator<char>());
+//            std::for_each(src_image_data.begin(), src_image_data.end(), [](char c) { std::cout << c; });
+
+            
+//            ifstream fin;
+//            fin.open("002.jpg", ios_base::binary);
+//            if (!fin.is_open())
+//            {
+//                cout << "Error open file..." << endl;
+//            }
+//            fin.seekg(0, ios::end);
+//            long fsize = fin.tellg();
+//            char* pfile = new char[fsize];
+//            fin.read(pfile, fsize);
+            
             // send alarm
             AlarmInfo info;
             info.set_id(id);
@@ -128,20 +139,25 @@ void *Server::WorkThreadProc() {
             info.set_start_timestamp(start_timestamp);
             info.set_end_timestamp(end_timestamp);
             info.set_credibility(credibility);
-            info.set_src_image(pfile);
             
+            info.set_src_image(src_image_data);
+//            info.set_src_image("123");
+//            info.set_alarm_pic("456");
+//            info.set_alarm_vid("789");
+        
+
             Server::SendToAll(packet_index, info);
             packet_index++;
             
-            if(pfile){
-                delete[] pfile;
-            }
+            ifs.close();
+//            if(pfile){
+//                delete[] pfile;
+//            }
             
             // update status
             //db.execute("UPDATE t_alarminfo SET send = 1 WHERE id = 478");
-
         }
-        sleep(10);
+        sleep(5);
     }
     
     //End thread
@@ -218,6 +234,7 @@ bool Server::SendPacket(Client &client, int packet_index,
     memcpy(packetBuff, &header, headerSize);
     //msg 信息
     memcpy(packetBuff + headerSize, msgBuff, msgSize);
+    cout << "msgSize: " << msgSize << endl;
     
     bool ret = client.sock.send(packetBuff, packetSize);
     if(!ret){
