@@ -1,0 +1,3 @@
+/sh/hhserver/mserver/client/CMakeFiles/rebuild_cache.dir
+/sh/hhserver/mserver/client/CMakeFiles/edit_cache.dir
+/sh/hhserver/mserver/client/CMakeFiles/client.dir

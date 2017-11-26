@@ -35,9 +35,9 @@ Server::Server() {
 }
 
 /*
- AcceptAndDispatch();
+	AcceptAndDispatch();
  
- Main loop:
+	Main loop:
  Blocks at accept(), until a new connection arrives.
  When it happens, create a new thread to handle the new client.
  */
@@ -50,7 +50,7 @@ void Server::AcceptAndDispatch() {
     
     Client *client;
     HHThread *client_thread;
-    
+
     while(1) {
         
         client = new Client();
@@ -71,8 +71,8 @@ void Server::AcceptAndDispatch() {
 
 //worker thread
 void *Server::WorkThreadProc() {
-    sqlite3pp::database db("../carDetection/db/local.db");
-    
+    sqlite3pp::database db("/sh/hhserver/carDetection/db/local.db");
+
     int packet_index = 0;
     while(1)
     {
@@ -87,7 +87,7 @@ void *Server::WorkThreadProc() {
             v.getter() >> id >> obj_type >> timestamp >> x >> y >> w
             >> h >> start_timestamp >> end_timestamp >> credibility
             >> alarm_pic >> alarm_vid >> src_image >> send;
-            
+
             if(send == 1){
                 continue;
             }
@@ -106,20 +106,29 @@ void *Server::WorkThreadProc() {
             cout << "alarm_pic = " << alarm_pic << endl;
             cout << "alarm_vid = " << alarm_vid << endl;
             cout << "src_image = " << src_image << endl;
-            
-            //read file
-            std::ifstream ifs("002.jpg");
-            
-            if(!ifs)
+
+            //alarm_image
+            std::ifstream ifs_alarm(alarm_pic);
+            if(!ifs_alarm)
             {
                 cout << "Error open file..." << endl;
                 continue;
             }
-            
             //If you really need it in a string you can initialize it the same way as the vector
-            std::string src_image_data = std::string(std::istreambuf_iterator<char>(ifs), std::istreambuf_iterator<char>());
-            //            std::for_each(src_image_data.begin(), src_image_data.end(), [](char c) { std::cout << c; });
-            ifs.close();
+            std::string alarm_image_data = std::string(std::istreambuf_iterator<char>(ifs_alarm), std::istreambuf_iterator<char>());
+//            std::for_each(alarm_image_data.begin(), alarm_image_data.end(), [](char c) { std::cout << c; });
+            ifs_alarm.close();
+
+            //src_image
+            std::ifstream ifs_src(src_image);
+            if(!ifs_src)
+            {
+                cout << "Error open file..." << endl;
+                continue;
+            }
+            //If you really need it in a string you can initialize it the same way as the vector
+            std::string src_image_data = std::string(std::istreambuf_iterator<char>(ifs_src), std::istreambuf_iterator<char>());
+            ifs_src.close();
             
             // send alarm
             AlarmInfo info;
@@ -134,12 +143,15 @@ void *Server::WorkThreadProc() {
             info.set_end_timestamp(end_timestamp);
             info.set_credibility(credibility);
             
-            info.set_alarm_pic(src_image_data);
+            info.set_alarm_pic(alarm_image_data);
+            info.set_alarm_vid("");//TODO
+            info.set_src_image(src_image_data);
             
+
             Server::SendToAll(packet_index, info);
             packet_index++;
-            
-            // update status
+
+            //update status
             char sql_update[1024];
             sprintf(sql_update, "UPDATE t_alarminfo SET send = 1 WHERE id = %d", id);
             db.execute(sql_update);
@@ -177,23 +189,23 @@ void *Server::HandleClient(void *args) {
     {
         memset(buffer, 0, sizeof buffer);
         n = client->sock.recv(buffer, sizeof buffer);
-        
+
         //Client disconnected?
         if(n == 0) {
             cout << "Client " << client->name << " diconnected" << endl;
             //      close(c->sock);
             client->sock.close();
-            
+
             //Remove client in Static clients <vector> (Critical section!)
             HHThread::LockMutex((const char *) client->name);
-            
+
             index = Server::FindClientIndex(client);
             cout << "Erasing user in position " << index << " whose name id is: "
             << Server::clients[index].id << endl;
             Server::clients.erase(Server::clients.begin() + index);
-            
+
             HHThread::UnlockMutex((const char *) client->name);
-            
+
             break;
         }
         else if(n < 0) {
@@ -214,7 +226,7 @@ bool Server::SendPacket(Client &client, int packet_index,
     
     char msgBuff[msgSize];
     msg.SerializeToArray(msgBuff,msgSize);
-    
+   
     // packet
     char packetBuff[packetSize];
     //头信息
@@ -246,7 +258,7 @@ void Server::SendToAll(int packet_index, AlarmInfo info) {
         header.msg_length = info.ByteSize();//Message的字节数
         header.type = 1;
         header.reserved = 0;
-        
+
         SendPacket(clients[i], packet_index, info, header);
     }
     
@@ -318,4 +330,3 @@ int Server::FindClientIndex(Client *c) {
 //        packet_index++;
 
 //        sleep(2);
-
