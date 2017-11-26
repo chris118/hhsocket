@@ -10,7 +10,7 @@
 #include <iostream>
 #include <assert.h>
 #include <stdint.h>
-#include "../ProtoBuf/alarm.pb.h"
+#include "alarm.pb.h"
 
 using namespace std;
 

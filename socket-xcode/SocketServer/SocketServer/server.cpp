@@ -71,7 +71,7 @@ void Server::AcceptAndDispatch() {
 
 //worker thread
 void *Server::WorkThreadProc() {
-    sqlite3pp::database db("../carDetection/db/local.db");
+    sqlite3pp::database db("local.db");
     
     int packet_index = 0;
     while(1)
@@ -102,53 +102,20 @@ void *Server::WorkThreadProc() {
             cout << "start_timestamp = " << start_timestamp << endl;
             cout << "end_timestamp = " << end_timestamp << endl;
             cout << "credibility = " << credibility << endl;
-<<<<<<< HEAD
-            cout << "send = " << send << endl;
-            cout << "alarm_pic = " << alarm_pic << endl;
-            cout << "alarm_vid = " << alarm_vid << endl;
-            cout << "src_image = " << src_image << endl;
-            
-            //read file
-            std::ifstream ifs("002.jpg");
-            
-=======
-            
-            //read file
-            std::ifstream ifs("002.jpg");
-//            std::ifstream ifs("1.txt");
 
->>>>>>> e725a06b746d7887ca75318c1daa3db83087dd84
+            //read file
+            std::ifstream ifs("002.jpg");
             if(!ifs)
             {
                 cout << "Error open file..." << endl;
                 continue;
             }
-<<<<<<< HEAD
             
             //If you really need it in a string you can initialize it the same way as the vector
             std::string src_image_data = std::string(std::istreambuf_iterator<char>(ifs), std::istreambuf_iterator<char>());
             //            std::for_each(src_image_data.begin(), src_image_data.end(), [](char c) { std::cout << c; });
             ifs.close();
-=======
-
-            
-            //If you really need it in a string you can initialize it the same way as the vector
-            std::string src_image_data = std::string(std::istreambuf_iterator<char>(ifs), std::istreambuf_iterator<char>());
-//            std::for_each(src_image_data.begin(), src_image_data.end(), [](char c) { std::cout << c; });
-
-            
-//            ifstream fin;
-//            fin.open("002.jpg", ios_base::binary);
-//            if (!fin.is_open())
-//            {
-//                cout << "Error open file..." << endl;
-//            }
-//            fin.seekg(0, ios::end);
-//            long fsize = fin.tellg();
-//            char* pfile = new char[fsize];
-//            fin.read(pfile, fsize);
->>>>>>> e725a06b746d7887ca75318c1daa3db83087dd84
-            
+         
             // send alarm
             AlarmInfo info;
             info.set_id(id);
@@ -161,35 +128,18 @@ void *Server::WorkThreadProc() {
             info.set_start_timestamp(start_timestamp);
             info.set_end_timestamp(end_timestamp);
             info.set_credibility(credibility);
-<<<<<<< HEAD
             
-            info.set_alarm_pic(src_image_data);
-=======
->>>>>>> e725a06b746d7887ca75318c1daa3db83087dd84
-            
+            info.set_alarm_pic("");
+            info.set_alarm_vid("");
             info.set_src_image(src_image_data);
-//            info.set_src_image("123");
-//            info.set_alarm_pic("456");
-//            info.set_alarm_vid("789");
-        
 
             Server::SendToAll(packet_index, info);
             packet_index++;
             
-<<<<<<< HEAD
-            // update status
-            char sql_update[1024];
-            sprintf(sql_update, "UPDATE t_alarminfo SET send = 1 WHERE id = %d", id);
-            db.execute(sql_update);
-=======
-            ifs.close();
-//            if(pfile){
-//                delete[] pfile;
-//            }
-            
-            // update status
-            //db.execute("UPDATE t_alarminfo SET send = 1 WHERE id = 478");
->>>>>>> e725a06b746d7887ca75318c1daa3db83087dd84
+//            // update status
+//            char sql_update[1024];
+//            sprintf(sql_update, "UPDATE t_alarminfo SET send = 1 WHERE id = %d", id);
+//            db.execute(sql_update);
         }
         sleep(5);
     }

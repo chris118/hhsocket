@@ -12,6 +12,7 @@
 		9A53241E1FBDF16900851F5E /* sqlite3pp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A53241A1FBDF16900851F5E /* sqlite3pp.cpp */; };
 		9A53241F1FBDF16900851F5E /* sqlite3ppext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A53241C1FBDF16900851F5E /* sqlite3ppext.cpp */; };
 		9A5324211FBDF33900851F5E /* libc++abi.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5324201FBDF33900851F5E /* libc++abi.tbd */; };
+		9A7A7C3E1FCAF7BD009694D0 /* libprotobuf.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A7A7C3D1FCAF7BD009694D0 /* libprotobuf.9.dylib */; };
 		9AC36C181ED181D3003D5D0B /* Socket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AC36C111ED181D3003D5D0B /* Socket.cpp */; };
 		9AC36C191ED181D3003D5D0B /* Utility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AC36C161ED181D3003D5D0B /* Utility.cpp */; };
 		9AC36C1B1ED18766003D5D0B /* hhpacket.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AC36C1A1ED18766003D5D0B /* hhpacket.hpp */; };
@@ -19,8 +20,6 @@
 		9AC36C241ED294B1003D5D0B /* hhthread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AC36C1E1ED294B1003D5D0B /* hhthread.cpp */; };
 		9AC36C251ED294B1003D5D0B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AC36C201ED294B1003D5D0B /* main.cpp */; };
 		9AC36C261ED294B1003D5D0B /* server.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AC36C211ED294B1003D5D0B /* server.cpp */; };
-		9AE4348C1EE820BD00ED99A0 /* libprotobuf.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE434871EE820BD00ED99A0 /* libprotobuf.dylib */; };
-		9AE4348D1EE820BD00ED99A0 /* libprotoc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE434881EE820BD00ED99A0 /* libprotoc.a */; };
 		9AE434901EE941AD00ED99A0 /* hhmessagesender.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AE4348F1EE941AD00ED99A0 /* hhmessagesender.hpp */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +47,7 @@
 		9A53241C1FBDF16900851F5E /* sqlite3ppext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sqlite3ppext.cpp; sourceTree = "<group>"; };
 		9A53241D1FBDF16900851F5E /* sqlite3ppext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sqlite3ppext.h; sourceTree = "<group>"; };
 		9A5324201FBDF33900851F5E /* libc++abi.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++abi.tbd"; path = "usr/lib/libc++abi.tbd"; sourceTree = SDKROOT; };
+		9A7A7C3D1FCAF7BD009694D0 /* libprotobuf.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libprotobuf.9.dylib; path = ../../../../../../usr/local/lib/libprotobuf.9.dylib; sourceTree = "<group>"; };
 		9AC36C111ED181D3003D5D0B /* Socket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Socket.cpp; sourceTree = "<group>"; };
 		9AC36C121ED181D3003D5D0B /* Socket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Socket.h; sourceTree = "<group>"; };
 		9AC36C131ED181D3003D5D0B /* SocketException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketException.h; sourceTree = "<group>"; };
@@ -62,8 +62,6 @@
 		9AC36C201ED294B1003D5D0B /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		9AC36C211ED294B1003D5D0B /* server.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = server.cpp; sourceTree = "<group>"; };
 		9AC36C221ED294B1003D5D0B /* server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = server.h; sourceTree = "<group>"; };
-		9AE434871EE820BD00ED99A0 /* libprotobuf.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libprotobuf.dylib; sourceTree = "<group>"; };
-		9AE434881EE820BD00ED99A0 /* libprotoc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libprotoc.a; sourceTree = "<group>"; };
 		9AE4348F1EE941AD00ED99A0 /* hhmessagesender.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = hhmessagesender.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,10 +70,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A7A7C3E1FCAF7BD009694D0 /* libprotobuf.9.dylib in Frameworks */,
 				9A5324211FBDF33900851F5E /* libc++abi.tbd in Frameworks */,
 				9A5324171FBDF0F900851F5E /* libsqlite3.tbd in Frameworks */,
-				9AE4348D1EE820BD00ED99A0 /* libprotoc.a in Frameworks */,
-				9AE4348C1EE820BD00ED99A0 /* libprotobuf.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +119,7 @@
 		9A5324151FBDF0F900851F5E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9A7A7C3D1FCAF7BD009694D0 /* libprotobuf.9.dylib */,
 				9A5324201FBDF33900851F5E /* libc++abi.tbd */,
 				9A5324161FBDF0F900851F5E /* libsqlite3.tbd */,
 			);
@@ -166,8 +164,6 @@
 				9A3CA5AC1FC4747F00FDDD42 /* alarm.pb.cc */,
 				9A3CA5AD1FC4747F00FDDD42 /* alarm.pb.h */,
 				9A373A5F1FC326B200B76CC2 /* alarm.proto */,
-				9AE434871EE820BD00ED99A0 /* libprotobuf.dylib */,
-				9AE434881EE820BD00ED99A0 /* libprotoc.a */,
 			);
 			path = ProtoBuf;
 			sourceTree = "<group>";

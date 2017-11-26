@@ -28,7 +28,7 @@
 #include "socket_client/ClientSocket.h"
 #include "socket_client/hhpacket.hpp"
 #include "socket_client/hhmessagehandle.hpp"
-#include "ProtoBuf/alarm.pb.h"
+#include "alarm.pb.h"
 
 using namespace std;
 using namespace hhclient;
