@@ -340,11 +340,11 @@
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
-					"/Users/admin/hh/hhsocket/socket-xcode/SocketServer/ProtoBuf",
+					"$(PROJECT_DIR)/ProtoBuf",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/admin/hh/hhsocket/socket-xcode/SocketServer/ProtoBuf",
+					"$(PROJECT_DIR)/ProtoBuf",
 					/usr/local/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -357,11 +357,11 @@
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
-					"/Users/admin/hh/hhsocket/socket-xcode/SocketServer/ProtoBuf",
+					"$(PROJECT_DIR)/ProtoBuf",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/admin/hh/hhsocket/socket-xcode/SocketServer/ProtoBuf",
+					"$(PROJECT_DIR)/ProtoBuf",
 					/usr/local/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
