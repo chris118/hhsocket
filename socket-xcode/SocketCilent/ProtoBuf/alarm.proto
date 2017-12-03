@@ -10,8 +10,8 @@ required int32 h = 7;
 required int32 start_timestamp = 8;
 required int32 end_timestamp = 9;
 required float credibility = 10;
-required bytes src_image = 11;
-required bytes alarm_pic = 12;
-required bytes alarm_vid = 13;
+optional bytes src_image = 11;
+optional bytes alarm_pic = 12;
+optional bytes alarm_vid = 13;
 }
 

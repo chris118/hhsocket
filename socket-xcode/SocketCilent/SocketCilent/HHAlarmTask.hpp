@@ -48,6 +48,10 @@ public:
                 HHHeader header;
                 m_socket.recv(&header, sizeof(header));
                 
+                cout << "-----------------HHHeader----------------------- " << endl;
+                cout << "header.seq: " << header.seq << endl;
+                cout << "header.msg_length: " << header.msg_length << endl;
+                
                 //收消息体
                 int messageSize = header.msg_length;
                 char protoMsgBuf[messageSize];
@@ -56,7 +60,7 @@ public:
                 if(messageSize > MAXRECV){
                     int left_length = messageSize;
                     int read_length = 0;
-                    const int TRUNK_SIZE = 100;
+                    const int TRUNK_SIZE = 20;
 
                     while (left_length > 0) {
                         if(left_length > TRUNK_SIZE){
@@ -116,10 +120,9 @@ public:
                     alarm.end_timestamp = alarm_info->end_timestamp();
                     alarm.credibility = alarm_info->credibility();
                     
-                    string src = alarm_info->src_image();
-                    cout << src << endl;
-                    alarm.src_image = (char*)src.c_str();
-                    alarm.src_image_size = src.length();
+                    string src = alarm_info->alarm_pic();
+                    alarm.alarm_pic = (char*)src.c_str();
+                    alarm.alarm_pic_size = src.length();
 
                     m_callback->onAlarm(alarm);
                 }

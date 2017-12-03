@@ -93,8 +93,8 @@ void protobuf_AddDesc_alarm_2eproto() {
     "x\030\004 \002(\005\022\t\n\001y\030\005 \002(\005\022\t\n\001w\030\006 \002(\005\022\t\n\001h\030\007 \002(\005"
     "\022\027\n\017start_timestamp\030\010 \002(\005\022\025\n\rend_timesta"
     "mp\030\t \002(\005\022\023\n\013credibility\030\n \002(\002\022\021\n\tsrc_ima"
-    "ge\030\013 \002(\014\022\021\n\talarm_pic\030\014 \002(\014\022\021\n\talarm_vid"
-    "\030\r \002(\014", 246);
+    "ge\030\013 \001(\014\022\021\n\talarm_pic\030\014 \001(\014\022\021\n\talarm_vid"
+    "\030\r \001(\014", 246);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "alarm.proto", &protobuf_RegisterTypes);
   AlarmInfo::default_instance_ = new AlarmInfo();
@@ -401,7 +401,7 @@ bool AlarmInfo::MergePartialFromCodedStream(
         break;
       }
 
-      // required bytes src_image = 11;
+      // optional bytes src_image = 11;
       case 11: {
         if (tag == 90) {
          parse_src_image:
@@ -414,7 +414,7 @@ bool AlarmInfo::MergePartialFromCodedStream(
         break;
       }
 
-      // required bytes alarm_pic = 12;
+      // optional bytes alarm_pic = 12;
       case 12: {
         if (tag == 98) {
          parse_alarm_pic:
@@ -427,7 +427,7 @@ bool AlarmInfo::MergePartialFromCodedStream(
         break;
       }
 
-      // required bytes alarm_vid = 13;
+      // optional bytes alarm_vid = 13;
       case 13: {
         if (tag == 106) {
          parse_alarm_vid:
@@ -515,19 +515,19 @@ void AlarmInfo::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteFloat(10, this->credibility(), output);
   }
 
-  // required bytes src_image = 11;
+  // optional bytes src_image = 11;
   if (has_src_image()) {
     ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
       11, this->src_image(), output);
   }
 
-  // required bytes alarm_pic = 12;
+  // optional bytes alarm_pic = 12;
   if (has_alarm_pic()) {
     ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
       12, this->alarm_pic(), output);
   }
 
-  // required bytes alarm_vid = 13;
+  // optional bytes alarm_vid = 13;
   if (has_alarm_vid()) {
     ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
       13, this->alarm_vid(), output);
@@ -593,21 +593,21 @@ void AlarmInfo::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(10, this->credibility(), target);
   }
 
-  // required bytes src_image = 11;
+  // optional bytes src_image = 11;
   if (has_src_image()) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
         11, this->src_image(), target);
   }
 
-  // required bytes alarm_pic = 12;
+  // optional bytes alarm_pic = 12;
   if (has_alarm_pic()) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
         12, this->alarm_pic(), target);
   }
 
-  // required bytes alarm_vid = 13;
+  // optional bytes alarm_vid = 13;
   if (has_alarm_vid()) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
@@ -696,21 +696,21 @@ int AlarmInfo::ByteSize() const {
       total_size += 1 + 4;
     }
 
-    // required bytes src_image = 11;
+    // optional bytes src_image = 11;
     if (has_src_image()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::BytesSize(
           this->src_image());
     }
 
-    // required bytes alarm_pic = 12;
+    // optional bytes alarm_pic = 12;
     if (has_alarm_pic()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::BytesSize(
           this->alarm_pic());
     }
 
-    // required bytes alarm_vid = 13;
+    // optional bytes alarm_vid = 13;
     if (has_alarm_vid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::BytesSize(
@@ -802,7 +802,7 @@ void AlarmInfo::CopyFrom(const AlarmInfo& from) {
 }
 
 bool AlarmInfo::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00001fff) != 0x00001fff) return false;
+  if ((_has_bits_[0] & 0x000003ff) != 0x000003ff) return false;
 
   return true;
 }

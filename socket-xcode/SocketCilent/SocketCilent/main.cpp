@@ -38,7 +38,7 @@ class HHCallback: public HHlientCallback{
 //        cout << "src_image " <<static_cast<const void *>(alarm.src_image )<< endl;
 //
         ofstream os("result.jpg",ios::binary);
-        os.write(alarm.src_image, alarm.src_image_size);
+        os.write(alarm.alarm_pic, alarm.alarm_pic_size);
     }
 };
 
@@ -49,7 +49,8 @@ int main(int argc, const char * argv[])
     HHCallback *callback = new HHCallback();
     
     HHClientAPI* client = HHClientAPI_Create(callback);
-    HHResult ret = client->Login("127.0.0.1", 30666);
+//    HHResult ret = client->Login("127.0.0.1", 30666);
+    HHResult ret = client->Login("122.192.0.171", 30666);
     if(ret != OK){
         cout << "login error" << endl;
     }
