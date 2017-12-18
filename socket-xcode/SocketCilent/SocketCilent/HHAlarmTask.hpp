@@ -48,20 +48,23 @@ public:
                 HHHeader header;
                 m_socket.recv(&header, sizeof(header));
                 
-                cout << "-----------------HHHeader----------------------- " << endl;
-                cout << "header.seq: " << header.seq << endl;
-                cout << "header.msg_length: " << header.msg_length << endl;
+                cout << "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" << endl;
+                cout << "flag:" << header.flag << " seq: " << header.seq <<  " length: " << header.msg_length << endl;
+                if(header.flag != 0xffff){
+                    HHLOG("bad package, continue");
+                    break;
+                }
                 
                 //收消息体
                 int messageSize = header.msg_length;
                 char protoMsgBuf[messageSize];
-                
+
                 //分小块收取
                 if(messageSize > MAXRECV){
                     int left_length = messageSize;
                     int read_length = 0;
-                    const int TRUNK_SIZE = 20;
-
+                    const int TRUNK_SIZE = 100;
+                    
                     while (left_length > 0) {
                         if(left_length > TRUNK_SIZE){
                             char buf[TRUNK_SIZE];
@@ -86,12 +89,10 @@ public:
                 const ::google::protobuf::Descriptor*descriptor =AlarmInfo::descriptor();
                 const google::protobuf::Message* prototype = google::protobuf::MessageFactory::generated_factory()->GetPrototype(descriptor);
                 google::protobuf::Message* msgProtobuf = prototype->New();
-                bool ret = msgProtobuf->ParseFromArray(protoMsgBuf, (int)sizeof(protoMsgBuf));
+                bool ret = msgProtobuf->ParseFromArray(protoMsgBuf, messageSize);
                 if (ret == false)
                 {
-                    cout << "Deserialize error !" << endl;
-                    sleep(2);
-                    continue;
+                    HHLOG("Deserialize error");
                 }
                 
                 AlarmInfo *alarm_info = static_cast<class AlarmInfo*>(msgProtobuf) ;

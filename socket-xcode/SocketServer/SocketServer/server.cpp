@@ -102,19 +102,6 @@ void *Server::WorkThreadProc() {
             cout << "start_timestamp = " << start_timestamp << endl;
             cout << "end_timestamp = " << end_timestamp << endl;
             cout << "credibility = " << credibility << endl;
-
-            //read file
-            std::ifstream ifs("002.jpg");
-            if(!ifs)
-            {
-                cout << "Error open file..." << endl;
-                continue;
-            }
-            
-            //If you really need it in a string you can initialize it the same way as the vector
-            std::string src_image_data = std::string(std::istreambuf_iterator<char>(ifs), std::istreambuf_iterator<char>());
-            //            std::for_each(src_image_data.begin(), src_image_data.end(), [](char c) { std::cout << c; });
-            ifs.close();
          
             // send alarm
             AlarmInfo info;
@@ -131,7 +118,7 @@ void *Server::WorkThreadProc() {
             
             info.set_alarm_pic("");
             info.set_alarm_vid("");
-            info.set_src_image(src_image_data);
+            info.set_src_image("");
 
             Server::SendToAll(packet_index, info);
             packet_index++;
@@ -267,52 +254,3 @@ int Server::FindClientIndex(Client *c) {
     LOG("Client id not found.");
     return -1;
 }
-
-
-
-
-
-//        //Message received. Send to all clients.
-//        snprintf(message, sizeof message, "<%s>: %s", client->name, buffer);
-//        cout << "Will send to all: " << message << endl;
-//
-//        Server::SendToAll(packet_index);
-
-
-
-//        memset(buffer, 0, sizeof buffer);
-//        n = client->sock.recv(buffer, sizeof buffer);
-//
-//        //Client disconnected?
-//        if(n == 0) {
-//            cout << "Client " << client->name << " diconnected" << endl;
-//            //      close(c->sock);
-//            client->sock.close();
-//
-//            //Remove client in Static clients <vector> (Critical section!)
-//            HHThread::LockMutex((const char *) client->name);
-//
-//            index = Server::FindClientIndex(client);
-//            cout << "Erasing user in position " << index << " whose name id is: "
-//            << Server::clients[index].id << endl;
-//            Server::clients.erase(Server::clients.begin() + index);
-//
-//            HHThread::UnlockMutex((const char *) client->name);
-//
-//            break;
-//        }
-//        else if(n < 0) {
-//            LOG2("Error while receiving message from client: %s", client->name);
-//        }
-//        else {
-//            //Message received. Send to all clients.
-//            snprintf(message, sizeof message, "<%s>: %s", client->name, buffer);
-//            cout << "Will send to all: " << message << endl;
-//
-//            Server::SendToAll(packet_index);
-//        }
-
-//        packet_index++;
-
-//        sleep(2);
-

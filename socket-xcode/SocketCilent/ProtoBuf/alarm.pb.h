@@ -158,7 +158,7 @@ class AlarmInfo : public ::google::protobuf::Message {
   inline float credibility() const;
   inline void set_credibility(float value);
 
-  // optional bytes src_image = 11;
+  // required bytes src_image = 11;
   inline bool has_src_image() const;
   inline void clear_src_image();
   static const int kSrcImageFieldNumber = 11;
@@ -170,7 +170,7 @@ class AlarmInfo : public ::google::protobuf::Message {
   inline ::std::string* release_src_image();
   inline void set_allocated_src_image(::std::string* src_image);
 
-  // optional bytes alarm_pic = 12;
+  // required bytes alarm_pic = 12;
   inline bool has_alarm_pic() const;
   inline void clear_alarm_pic();
   static const int kAlarmPicFieldNumber = 12;
@@ -182,7 +182,7 @@ class AlarmInfo : public ::google::protobuf::Message {
   inline ::std::string* release_alarm_pic();
   inline void set_allocated_alarm_pic(::std::string* alarm_pic);
 
-  // optional bytes alarm_vid = 13;
+  // required bytes alarm_vid = 13;
   inline bool has_alarm_vid() const;
   inline void clear_alarm_vid();
   static const int kAlarmVidFieldNumber = 13;
@@ -494,7 +494,7 @@ inline void AlarmInfo::set_credibility(float value) {
   // @@protoc_insertion_point(field_set:AlarmInfo.credibility)
 }
 
-// optional bytes src_image = 11;
+// required bytes src_image = 11;
 inline bool AlarmInfo::has_src_image() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -570,7 +570,7 @@ inline void AlarmInfo::set_allocated_src_image(::std::string* src_image) {
   // @@protoc_insertion_point(field_set_allocated:AlarmInfo.src_image)
 }
 
-// optional bytes alarm_pic = 12;
+// required bytes alarm_pic = 12;
 inline bool AlarmInfo::has_alarm_pic() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -646,7 +646,7 @@ inline void AlarmInfo::set_allocated_alarm_pic(::std::string* alarm_pic) {
   // @@protoc_insertion_point(field_set_allocated:AlarmInfo.alarm_pic)
 }
 
-// optional bytes alarm_vid = 13;
+// required bytes alarm_vid = 13;
 inline bool AlarmInfo::has_alarm_vid() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
