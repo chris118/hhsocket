@@ -1,1 +1,0 @@
-/usr/bin/c++      CMakeFiles/client.dir/main.cpp.o CMakeFiles/client.dir/HHClient.cpp.o CMakeFiles/client.dir/protobuf/alarm.pb.cc.o CMakeFiles/client.dir/socket_base/Socket.cpp.o CMakeFiles/client.dir/core/ThreadPool.cpp.o CMakeFiles/client.dir/socket_client/ClientSocket.cpp.o  -o client -rdynamic -lprotobuf -lpthread -lsqlite3 
