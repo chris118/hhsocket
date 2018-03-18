@@ -1,12 +1,12 @@
-socket-linux/client/*.cmake
-socket-linux/client/CMakeCache.txt
-socket-linux/client/CMakeFiles/
-socket-linux/client/Makefile
+socket-xcode/client/*.cmake
+socket-xcode/client/CMakeCache.txt
+socket-xcode/client/CMakeFiles/
+socket-xcode/client/Makefile
 
-socket-linux/server/*.cmake
-socket-linux/server/CMakeCache.txt
-socket-linux/server/CMakeFiles/
-socket-linux/server/Makefile
+socket-xcode/server/*.cmake
+socket-xcode/server/CMakeCache.txt
+socket-xcode/server/CMakeFiles/
+socket-xcode/server/Makefile
 
 # Compiled Object files
 *.slo

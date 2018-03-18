@@ -12,12 +12,16 @@
 
 HHClientAPI* client = NULL;
 HHClientAPI* hhclient::HHClientAPI_Create(HHlientCallback * callback){
+    cout << "HHClientAPI_Create client: " << client << endl;
     client = new HHClientImpl(callback);
     return client;
 }
 
 void hhclient::HHClient_Destroy(HHClientAPI* client) {
-    cout << "client destroy !!" << endl;
+    cout << "HHClient_Destroy client: " << client << endl;
+    ((HHClientImpl*)client)->Logout();
+    if(client){
+      delete client;
+      client = NULL;
+    }
 }
-
-

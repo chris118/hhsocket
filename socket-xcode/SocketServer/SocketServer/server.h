@@ -14,9 +14,10 @@
 #include "hhthread.h"
 #include "client.h"
 
-#include "HHLog.hpp"
+#include "hhlog.hpp"
 #include "HHPacket.hpp"
 #include "Utility.h"
+#include "global.hpp"
 #include "socket_base/Socket.h"
 #include "socket_base/SocketException.h"
 #include "alarm.pb.h"
@@ -32,20 +33,21 @@ enum ErrorCode {
 class Server {
 
   private:
-    static vector<Client> clients;
+    static vector<Client> clients; 
 
     //Socket stuff
     Socket serverSock, clientSock;
     struct sockaddr_in serverAddr, clientAddr;
     char buff[256];
-
+    Config m_config;
   public:
-    Server();
+    Server(Config config);
     void AcceptAndDispatch();
+    Config getConfig(); 
 
   private:
     
-    static void * WorkThreadProc();
+    static void * WorkThreadProc(void *args);
     static void * HandleClient(void *args);
     static void SendToAll(int packet_index, AlarmInfo info);
     static bool SendPacket(Client &client, int packet_index, google::protobuf::Message &msg, HHHeader header);

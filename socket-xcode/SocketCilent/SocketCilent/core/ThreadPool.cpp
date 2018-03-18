@@ -1,15 +1,18 @@
 //
 //  ThreadPool.cpp
-// 
+//
 //
 //  Created by xiaopeng.
 //  Copyright  All rights reserved.
 //
 
-#include "ThreadPool.h" 
+#include "ThreadPool.h"
 #include <stdio.h>
 #include <assert.h>
 #include <stdlib.h>
+#include <iostream>
+
+using namespace std;
 
 ThreadPool::ThreadPool(int threadNum)
 {
@@ -58,24 +61,43 @@ void ThreadPool::clearTask()
     pthread_cond_signal(&condition_);
 }
 
+void ThreadPool::removeTask(Task *task)
+{
+  cout << "removeTask enter" << endl;
+  cout << "taskQueue_.size()" << taskQueue_.size() << endl;
+  pthread_mutex_lock(&mutex_);
+  std::deque<Task*>::iterator it;
+  for(it=taskQueue_.begin();it!=taskQueue_.end();it++){
+    cout << "task" << task << endl;
+    cout << "*it" << *it << endl;
+        if(task == *it){
+          cout << "remove task" << endl;
+          taskQueue_.erase(it);
+        }
+  }
+
+  pthread_mutex_unlock(&mutex_);
+  pthread_cond_signal(&condition_);
+}
+
 void ThreadPool::stop()
 {
     if (!isRunning_)
     {
         return;
     }
-    
+
     isRunning_ = false;
     pthread_cond_broadcast(&condition_);
-    
+
     for (int i = 0; i < threadsNum_; i++)
     {
         pthread_join(threads_[i], NULL);
     }
-    
+
     free(threads_);
     threads_ = NULL;
-    
+
     pthread_mutex_destroy(&mutex_);
     pthread_cond_destroy(&condition_);
 }
@@ -98,11 +120,11 @@ Task* ThreadPool::take()
         {
             pthread_cond_wait(&condition_, &mutex_);
         }
-        
+
         if (!isRunning_)
         {
             pthread_mutex_unlock(&mutex_);
-            
+
             break;
         }
         else if (taskQueue_.empty())
@@ -110,7 +132,7 @@ Task* ThreadPool::take()
             pthread_mutex_unlock(&mutex_);
             continue;
         }
-        
+
         assert(!taskQueue_.empty());
         task = taskQueue_.front();
         taskQueue_.pop_front();
@@ -131,14 +153,16 @@ void* ThreadPool::threadFunc(void* arg)
             printf("thread %lu will exit\n", tid);
             break;
         }
-        
+
         assert(task);
         task->run();
-        
+
         if(task)
         {
             delete task;
         }
+
+        //cout << "threadFunc end" << endl;
     }
     return 0;
 }

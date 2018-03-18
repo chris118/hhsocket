@@ -43,6 +43,9 @@ namespace hhclient
         char* alarm_vid;            //报警视频
         long src_image_size;        
         char* src_image;            //原图
+        int image_id;               //图片序号
+        int image_width;            //图片宽
+        int image_height;           //图片高
     };
     
     class HHlientCallback

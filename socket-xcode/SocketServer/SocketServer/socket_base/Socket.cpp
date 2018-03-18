@@ -11,121 +11,121 @@
 
 
 Socket::Socket() :
-m_sock ( -1 )
+  m_sock ( -1 )
 {
-    
-    memset ( &m_addr,
-            0,
-            sizeof ( m_addr ) );
-    
+
+  memset ( &m_addr,
+	   0,
+	   sizeof ( m_addr ) );
+
 }
 
 Socket::~Socket()
 {
-    if ( is_valid() )
-        ::close ( m_sock );
+  if ( is_valid() )
+    ::close ( m_sock );
 }
 
 bool Socket::create()
 {
-    m_sock = socket ( AF_INET,
-                     SOCK_STREAM,
-                     0 );
-    
-    if ( ! is_valid() )
-        return false;
-    
-    
-    // TIME_WAIT - argh
-    int on = 1;
-    if ( setsockopt ( m_sock, SOL_SOCKET, SO_REUSEADDR, ( const char* ) &on, sizeof ( on ) ) == -1 )
-        return false;
-    
-    
-    return true;
-    
+  m_sock = socket ( AF_INET,
+		    SOCK_STREAM,
+		    0 );
+
+  if ( ! is_valid() )
+    return false;
+
+
+  // TIME_WAIT - argh
+  int on = 1;
+  if ( setsockopt ( m_sock, SOL_SOCKET, SO_REUSEADDR, ( const char* ) &on, sizeof ( on ) ) == -1 )
+    return false;
+
+
+  return true;
+
 }
 
 
 
 bool Socket::bind ( const int port )
 {
-    
-    if ( ! is_valid() )
+
+  if ( ! is_valid() )
     {
-        return false;
+      return false;
     }
-    
-    
-    
-    m_addr.sin_family = AF_INET;
-    m_addr.sin_addr.s_addr = INADDR_ANY;
-    m_addr.sin_port = htons ( port );
-    
-    int bind_return = ::bind ( m_sock,
-                              ( struct sockaddr * ) &m_addr,
-                              sizeof ( m_addr ) );
-    
-    
-    if ( bind_return == -1 )
+
+
+
+  m_addr.sin_family = AF_INET;
+  m_addr.sin_addr.s_addr = INADDR_ANY;
+  m_addr.sin_port = htons ( port );
+
+  int bind_return = ::bind ( m_sock,
+			     ( struct sockaddr * ) &m_addr,
+			     sizeof ( m_addr ) );
+
+
+  if ( bind_return == -1 )
     {
-        return false;
+      return false;
     }
-    
-    return true;
+
+  return true;
 }
 
 
 bool Socket::listen() const
 {
-    if ( ! is_valid() )
+  if ( ! is_valid() )
     {
-        return false;
+      return false;
     }
-    
-    int listen_return = ::listen ( m_sock, MAXCONNECTIONS );
-    
-    
-    if ( listen_return == -1 )
+
+  int listen_return = ::listen ( m_sock, MAXCONNECTIONS );
+
+
+  if ( listen_return == -1 )
     {
-        return false;
+      return false;
     }
-    
-    return true;
+
+  return true;
 }
 
 
 bool Socket::accept ( Socket& new_socket ) const
 {
-    int addr_length = sizeof ( m_addr );
-    new_socket.m_sock = ::accept ( m_sock, ( sockaddr * ) &m_addr, ( socklen_t * ) &addr_length );
-    
-    if ( new_socket.m_sock <= 0 )
-        return false;
-    else
-        return true;
+  int addr_length = sizeof ( m_addr );
+  new_socket.m_sock = ::accept ( m_sock, ( sockaddr * ) &m_addr, ( socklen_t * ) &addr_length );
+
+  if ( new_socket.m_sock <= 0 )
+    return false;
+  else
+    return true;
 }
 
 
 bool Socket::send ( const std::string s ) const
 {
-    int status = ::send ( m_sock, s.c_str(), s.size(), MSG_NOSIGNAL );
-    if ( status == -1 )
+  int status = ::send ( m_sock, s.c_str(), s.size(), MSG_NOSIGNAL );
+  if ( status == -1 )
     {
-        return false;
+      return false;
     }
-    else
+  else
     {
-        return true;
+      return true;
     }
 }
 
 bool Socket::send ( void* data, int size) const{
-    
+
     int status = ::send ( m_sock, data, size, MSG_NOSIGNAL );
     if ( status == -1 )
     {
-        std::cout << "status == -1   errno == " << errno << "  in Socket::send\n";
+        std::cout << "send: " << "status == -1   errno == " << errno << "  in Socket::send\n";
         return false;
     }
     else
@@ -138,27 +138,27 @@ bool Socket::send ( void* data, int size) const{
 
 int Socket::recv ( std::string& s ) const
 {
-    char buf [ MAXRECV + 1 ];
-    
-    s = "";
-    
-    memset ( buf, 0, MAXRECV + 1 );
-    
-    int status = ::recv ( m_sock, buf, MAXRECV, 0 );
-    
-    if ( status == -1 )
+  char buf [ MAXRECV + 1 ];
+
+  s = "";
+
+  memset ( buf, 0, MAXRECV + 1 );
+
+  int status = ::recv ( m_sock, buf, MAXRECV, 0 );
+
+  if ( status == -1 )
     {
-        std::cout << "status == -1   errno == " << errno << "  in Socket::recv\n";
-        return 0;
+      std::cout << "status == -1   errno == " << errno << "  in Socket::recv\n";
+      return 0;
     }
-    else if ( status == 0 )
+  else if ( status == 0 )
     {
-        return 0;
+      return 0;
     }
-    else
+  else
     {
-        s = buf;
-        return status;
+      s = buf;
+      return status;
     }
 }
 
@@ -169,12 +169,12 @@ bool Socket::recv ( void* data, int size) const
     memset ( buf, 0, MAXRECV + 1 );
     
     //int status = ::recv ( m_sock, buf, MAXRECV, 0 );
-    int status = ::recv ( m_sock, buf, size,MSG_WAITALL );
-    
+    int status = ::recv ( m_sock, buf, size, MSG_WAITALL );
+
     
     if ( status == -1 )
     {
-        std::cout << "status == -1   errno == " << errno << "  in Socket::recv\n";
+        std::cout << "recv: " << "status == -1   errno == " << errno << "  in Socket::recv\n";
         return 0;
     }
     else if ( status == 0 )
@@ -191,51 +191,55 @@ bool Socket::recv ( void* data, int size) const
 
 bool Socket::connect ( const std::string host, const int port )
 {
-    if ( ! is_valid() ) return false;
-    
-    m_addr.sin_family = AF_INET;
-    m_addr.sin_port = htons ( port );
-    
-    int status = inet_pton ( AF_INET, host.c_str(), &m_addr.sin_addr );
-    
-    if ( errno == EAFNOSUPPORT ) return false;
-    
-    status = ::connect ( m_sock, ( sockaddr * ) &m_addr, sizeof ( m_addr ) );
-    
-    if ( status == 0 )
-        return true;
-    else
-        return false;
+  if ( ! is_valid() ) return false;
+
+  m_addr.sin_family = AF_INET;
+  m_addr.sin_port = htons ( port );
+
+  int status = inet_pton ( AF_INET, host.c_str(), &m_addr.sin_addr );
+
+  if ( errno == EAFNOSUPPORT ) return false;
+
+  status = ::connect ( m_sock, ( sockaddr * ) &m_addr, sizeof ( m_addr ) );
+
+  if ( status == 0 )
+    return true;
+  else
+    return false;
+}
+
+bool Socket::is_valid() const{
+//    std::cout << "is_valid: " << m_sock << std::endl;
+    return m_sock != -1;
 }
 
 
 void Socket::close()
 {
     std::cout << "socket close >>>>>>>>>>" << std::endl;
-    ::close(m_sock);
+//    ::close(m_sock);
+    ::shutdown(m_sock, 2);
 }
 
 void Socket::set_non_blocking ( const bool b )
 {
-    
-    int opts;
-    
-    opts = fcntl ( m_sock,
-                  F_GETFL );
-    
-    if ( opts < 0 )
+
+  int opts;
+
+  opts = fcntl ( m_sock,
+		 F_GETFL );
+
+  if ( opts < 0 )
     {
-        return;
+      return;
     }
-    
-    if ( b )
-        opts = ( opts | O_NONBLOCK );
-    else
-        opts = ( opts & ~O_NONBLOCK );
-    
-    fcntl ( m_sock,
-           F_SETFL,opts );
-    
+
+  if ( b )
+    opts = ( opts | O_NONBLOCK );
+  else
+    opts = ( opts & ~O_NONBLOCK );
+
+  fcntl ( m_sock,
+	  F_SETFL,opts );
+
 }
-
-

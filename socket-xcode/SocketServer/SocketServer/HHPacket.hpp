@@ -13,6 +13,7 @@
 #ifndef HHPACKET_h
 #define HHPACKET_h
 
+#pragma pack(1)
 struct HHHeader
 {
     int flag;
@@ -21,12 +22,14 @@ struct HHHeader
     int type;
     int reserved;
 };
+#pragma pack()
 
-
+#pragma pack(1)
 struct HHPacket
 {
     HHHeader header;
     byte*   body;
 };
+#pragma pack()
 
 #endif
